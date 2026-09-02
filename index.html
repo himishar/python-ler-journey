@@ -3,224 +3,1020 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Himanshu Sharma | Python Journey</title>
+<meta name="description" content="Himanshu Sharma - 120-Day Roadmap to Become a Data Engineer & Daily Learning Log">
+<title>Himanshu Sharma | 120-Day Data Engineering Journey</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#050816;--card:#0b1225;--card2:#101a33;--border:rgba(255,255,255,.08);--text:#f8fafc;--muted:#94a3b8;--purple:#8b5cf6;--blue:#3b82f6;--cyan:#06b6d4;--green:#22c55e;--yellow:#f59e0b}
-*{box-sizing:border-box}html{scroll-behavior:smooth}
-body{margin:0;font-family:Inter,sans-serif;color:var(--text);background:radial-gradient(circle at 10% 0%,rgba(124,58,237,.18),transparent 30%),radial-gradient(circle at 90% 10%,rgba(37,99,235,.15),transparent 30%),var(--bg);min-height:100vh}
-.navbar{background:rgba(5,8,22,.86);backdrop-filter:blur(15px);border-bottom:1px solid var(--border)}
-.brand{font-weight:800;font-size:1.2rem}.brand span{color:#a78bfa}
-.hero{padding:55px 0 25px}.hero-card,.panel,.day-card{background:linear-gradient(145deg,rgba(16,26,51,.94),rgba(8,15,31,.94));border:1px solid var(--border);border-radius:22px}
-.hero-card{padding:32px;border-color:rgba(139,92,246,.32);box-shadow:0 20px 70px rgba(0,0,0,.22)}
-.avatar{width:100px;height:100px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;font-weight:800;background:linear-gradient(135deg,#7c3aed,#2563eb);box-shadow:0 0 40px rgba(124,58,237,.28)}
-.hero h1{font-size:clamp(2rem,5vw,3.2rem);font-weight:800;letter-spacing:-1px}.gradient{background:linear-gradient(90deg,#a78bfa,#38bdf8);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.muted{color:var(--muted)}.stat{background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:15px;padding:18px;height:100%}.stat-num{font-size:1.35rem;font-weight:800}.progress{height:9px;background:#1e293b}.progress-bar{background:linear-gradient(90deg,var(--purple),var(--blue))}
-.section{padding:24px 0}.title{font-size:1.6rem;font-weight:800}.subtitle{color:var(--muted);margin-bottom:22px}
-.panel{padding:25px}.roadmap-item{padding:16px;border:1px solid var(--border);border-radius:14px;margin-bottom:10px;background:rgba(255,255,255,.02)}.done{border-color:rgba(34,197,94,.32);background:rgba(34,197,94,.045)}.active{border-color:rgba(139,92,246,.55);background:rgba(139,92,246,.07)}
-.day-card{padding:26px;margin-bottom:18px}.day-icon{width:62px;height:62px;border-radius:15px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.35rem;background:linear-gradient(135deg,#7c3aed,#2563eb);flex-shrink:0}
-.badge-pill{border-radius:30px;padding:6px 11px;font-size:.72rem;font-weight:700}.badge-done{background:rgba(34,197,94,.15);color:#86efac}.badge-next{background:rgba(59,130,246,.15);color:#93c5fd}
-.topic{padding:15px;border:1px solid var(--border);border-radius:13px;background:rgba(0,0,0,.14);height:100%}.topic h6{font-weight:800}.topic ul{padding-left:18px;margin:0;color:#cbd5e1}.topic li{margin:7px 0}.check{color:#4ade80}
-.callout{border-left:3px solid var(--cyan);background:rgba(6,182,212,.055);padding:18px;border-radius:10px}
-.next{border-color:rgba(59,130,246,.28);background:rgba(59,130,246,.04)}
-footer{padding:40px 0 25px;text-align:center;color:var(--muted)}
-@media(max-width:768px){.hero{padding-top:30px}.hero-card,.panel,.day-card{padding:20px}.avatar{width:78px;height:78px;font-size:1.55rem}.hero h1{font-size:2rem}.day-title{font-size:1.25rem}}
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-alt: #f1f5f9;
+  --border: #e2e8f0;
+  --border-focus: #cbd5e1;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --indigo: #4f46e5;
+  --indigo-light: #eef2ff;
+  --blue: #0284c7;
+  --blue-light: #e0f2fe;
+  --teal: #0d9488;
+  --teal-light: #ccfbf1;
+  --green: #16a34a;
+  --green-light: #dcfce7;
+  --amber: #d97706;
+  --amber-light: #fef3c7;
+  --rose: #e11d48;
+  --rose-light: #ffe4e6;
+  --card-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+  --card-shadow-hover: 0 12px 28px -4px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-main);
+  background: 
+    radial-gradient(circle at 8% 0%, rgba(79, 70, 229, 0.05), transparent 30%),
+    radial-gradient(circle at 92% 10%, rgba(2, 132, 199, 0.05), transparent 30%),
+    var(--bg);
+  min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  transition: all 0.2s ease;
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 1.25rem;
+  color: var(--text-main) !important;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+}
+
+.brand span {
+  color: var(--indigo);
+}
+
+.nav-link {
+  font-weight: 600;
+  color: var(--text-muted) !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  font-size: 0.92rem;
+}
+
+.nav-link:hover {
+  color: var(--indigo) !important;
+  background: var(--indigo-light);
+}
+
+.navbar-toggler {
+  border: 1px solid var(--border);
+  padding: 6px 10px;
+}
+
+/* Cards & Containers */
+.hero-card, .panel, .day-card, .strategy-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.hero {
+  padding: 42px 0 24px;
+}
+
+.hero-card {
+  padding: 34px;
+  border-color: #cbd5e1;
+}
+
+.avatar {
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--indigo), var(--blue));
+  box-shadow: 0 10px 25px rgba(79, 70, 229, 0.28);
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: var(--text-main);
+}
+
+.gradient {
+  background: linear-gradient(90deg, #4f46e5, #0284c7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+/* Stat Cards */
+.stat {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px;
+  height: 100%;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat:hover {
+  transform: translateY(-3px);
+  border-color: #cbd5e1;
+  box-shadow: var(--card-shadow-hover);
+}
+
+.stat-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+}
+
+.stat-num {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-top: 4px;
+}
+
+.progress {
+  height: 9px;
+  background: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  background: linear-gradient(90deg, var(--indigo), var(--blue));
+  border-radius: 999px;
+}
+
+/* Section Common */
+.section {
+  padding: 24px 0;
+}
+
+.title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.subtitle {
+  color: var(--text-muted);
+  margin-bottom: 22px;
+  font-size: 0.98rem;
+}
+
+.panel {
+  padding: 28px;
+}
+
+/* 120-Day Phase Pillar Cards */
+.phase-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 22px;
+  height: 100%;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.phase-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--card-shadow-hover);
+  border-color: #cbd5e1;
+}
+
+.phase-card.active {
+  border: 2px solid var(--indigo);
+  background: #fafafa;
+}
+
+.phase-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+/* Pipeline Flow */
+.pipeline-track {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 18px 24px;
+}
+
+.pipeline-step {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 7px 14px;
+  border-radius: 10px;
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  color: var(--text-main);
+}
+
+.pipeline-arrow {
+  color: var(--indigo);
+  font-weight: 800;
+  margin: 0 8px;
+}
+
+/* 17 Python Roadmap Item Styles */
+.roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 14px;
+}
+
+.roadmap-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px 18px;
+  transition: all 0.2s ease;
+}
+
+.roadmap-card:hover {
+  border-color: #cbd5e1;
+  background: #fcfcfd;
+  transform: translateY(-2px);
+}
+
+.roadmap-card.completed {
+  border-color: #bbf7d0;
+  background: #f0fdf4;
+}
+
+.roadmap-card.current {
+  border-color: #c7d2fe;
+  background: #eef2ff;
+}
+
+.roadmap-card h6 {
+  font-weight: 700;
+  margin-bottom: 4px;
+  font-size: 0.95rem;
+}
+
+.roadmap-card p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Badges */
+.badge-pill {
+  border-radius: 30px;
+  padding: 5px 12px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.badge-done {
+  background: var(--green-light);
+  color: var(--green);
+  border: 1px solid #bbf7d0;
+}
+
+.badge-active {
+  background: var(--indigo-light);
+  color: var(--indigo);
+  border: 1px solid #c7d2fe;
+}
+
+.badge-pending {
+  background: var(--surface-alt);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+/* Daily Log Cards */
+.day-card {
+  padding: 26px;
+  margin-bottom: 22px;
+}
+
+.day-card.completed-card {
+  border-color: #bbf7d0;
+  box-shadow: 0 6px 20px -2px rgba(22, 163, 74, 0.08);
+}
+
+.day-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.3rem;
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--green), #059669);
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.22);
+}
+
+.day-icon.day0 {
+  background: linear-gradient(135deg, var(--indigo), var(--blue));
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.22);
+}
+
+.day-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+/* Topic Boxes */
+.topic {
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: #f8fafc;
+  height: 100%;
+}
+
+.topic h6 {
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 12px;
+}
+
+.topic ul {
+  padding-left: 20px;
+  margin: 0;
+  color: #334155;
+}
+
+.topic li {
+  margin: 7px 0;
+  line-height: 1.5;
+  font-size: 0.92rem;
+}
+
+.check {
+  color: var(--green);
+}
+
+/* Key learning callout */
+.callout {
+  border-left: 4px solid var(--teal);
+  background: #f0fdfa;
+  padding: 18px 20px;
+  border-radius: 10px;
+  border-top: 1px solid #ccfbf1;
+  border-right: 1px solid #ccfbf1;
+  border-bottom: 1px solid #ccfbf1;
+}
+
+.callout strong {
+  color: #0f766e;
+  font-weight: 700;
+}
+
+.callout p {
+  color: #334155;
+  font-size: 0.94rem;
+}
+
+/* Strategy & Rules Box */
+.rule-box {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  height: 100%;
+}
+
+.rule-box.dos {
+  border-top: 4px solid var(--green);
+}
+
+.rule-box.donts {
+  border-top: 4px solid var(--rose);
+}
+
+.rule-item {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 0.92rem;
+}
+
+/* Footer */
+footer {
+  padding: 40px 0 30px;
+  text-align: center;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  background: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .hero { padding-top: 24px; }
+  .hero-card, .panel, .day-card { padding: 20px; }
+  .avatar { width: 75px; height: 75px; font-size: 1.5rem; }
+  .hero h1 { font-size: 1.9rem; }
+  .day-title { font-size: 1.15rem; }
+  .navbar-collapse {
+    background: #ffffff;
+    padding: 16px;
+    border-radius: 12px;
+    margin-top: 12px;
+    border: 1px solid var(--border);
+    box-shadow: var(--card-shadow);
+  }
+}
 </style>
 </head>
 <body>
 
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg sticky-top">
-<div class="container py-2">
-<a class="navbar-brand brand text-white" href="#"><i class="bi bi-code-slash"></i> Python <span>Journey</span></a>
-<button class="navbar-toggler bg-dark" type="button" data-bs-toggle="collapse" data-bs-target="#nav"><i class="bi bi-list text-white"></i></button>
-<div class="collapse navbar-collapse" id="nav">
-<ul class="navbar-nav ms-auto gap-lg-3">
-<li><a class="nav-link text-light" href="#progress">Progress</a></li>
-<li><a class="nav-link text-light" href="#roadmap">Roadmap</a></li>
-<li><a class="nav-link text-light" href="#daily">Daily Log</a></li>
-</ul>
-</div>
-</div>
+  <div class="container py-1">
+    <a class="navbar-brand brand" href="#">
+      <i class="bi bi-database-fill-gear text-primary"></i> Data <span>Engineer 120</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-label="Toggle navigation">
+      <i class="bi bi-list fs-5"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto gap-lg-2">
+        <li><a class="nav-link" href="#overview">Overview</a></li>
+        <li><a class="nav-link" href="#daily-completed">Completed Days</a></li>
+        <li><a class="nav-link" href="#strategy">1-Hour Method</a></li>
+        <li><a class="nav-link" href="#roadmap120">120-Day Roadmap</a></li>
+        <li><a class="nav-link" href="#python-plan">Python 30-Day Details</a></li>
+      </ul>
+    </div>
+  </div>
 </nav>
 
-<section class="hero" id="progress">
-<div class="container">
-<div class="hero-card">
-<div class="row align-items-center g-4">
-<div class="col-md-auto"><div class="avatar">HS</div></div>
-<div class="col">
-<div class="small muted mb-2">MY 30-DAY LEARNING JOURNEY</div>
-<h1>Himanshu <span class="gradient">Sharma</span> 👋</h1>
-<p class="lead mb-2"><strong class="text-warning">Python</strong> → <strong class="text-info">Data Engineering</strong></p>
-<p class="muted mb-1"><i class="bi bi-envelope"></i> himanshus027@gmail.com</p>
-<p class="muted mb-0"><i class="bi bi-calendar3"></i> Started: 1 September 2026</p>
-</div>
-</div>
+<!-- Hero Section -->
+<section class="hero" id="overview">
+  <div class="container">
+    <div class="hero-card">
+      <div class="row align-items-center g-4">
+        <div class="col-md-auto text-center text-md-start">
+          <div class="avatar mx-auto">HS</div>
+        </div>
+        <div class="col text-center text-md-start">
+          <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill bg-primary-subtle text-primary fw-bold small mb-2">
+            <i class="bi bi-bullseye"></i> 120-DAY DATA ENGINEERING MISSION
+          </div>
+          <h1 class="mb-2">Himanshu <span class="gradient">Sharma</span></h1>
+          <p class="lead mb-2 fw-semibold text-secondary">
+            Target: <span class="badge text-bg-dark px-2.5 py-1.5">Become a Data Engineer in 120 Days 🚀</span>
+          </p>
+          <div class="d-flex flex-wrap justify-content-center justify-content-md-start gap-3 mt-2">
+            <span class="muted small"><i class="bi bi-calendar3 text-primary me-1"></i> Started: 1 September 2026</span>
+            <span class="muted small"><i class="bi bi-clock-history text-primary me-1"></i> Daily Commitment: ~1 Hour / Day</span>
+            <span class="muted small"><i class="bi bi-envelope text-primary me-1"></i> himanshus027@gmail.com</span>
+          </div>
+        </div>
+      </div>
 
-<div class="row g-3 mt-4">
-<div class="col-6 col-lg-3"><div class="stat"><div class="muted small">Progress</div><div class="stat-num">1 / 30 Days</div><div class="progress mt-2"><div class="progress-bar" style="width:3.33%"></div></div><small class="muted">3.33%</small></div></div>
-<div class="col-6 col-lg-3"><div class="stat"><div class="muted small">Study Time</div><div class="stat-num">2 Hours</div><small class="muted">Logged</small></div></div>
-<div class="col-6 col-lg-3"><div class="stat"><div class="muted small">Streak</div><div class="stat-num">1 Day 🔥</div><small class="muted">Keep going</small></div></div>
-<div class="col-6 col-lg-3"><div class="stat"><div class="muted small">Current Focus</div><div class="stat-num">Python</div><small class="muted">Data Engineering</small></div></div>
-</div>
-</div>
-</div>
+      <!-- Quick Metrics -->
+      <div class="row g-3 mt-4">
+        <div class="col-6 col-lg-3">
+          <div class="stat">
+            <div class="stat-label">120-Day Target</div>
+            <div class="stat-num">Day 1 / 120</div>
+            <div class="progress mt-2"><div class="progress-bar" style="width:1.67%"></div></div>
+            <small class="muted mt-1 d-inline-block">1.67% of 120 Days</small>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="stat">
+            <div class="stat-label">Current Phase</div>
+            <div class="stat-num text-primary">Phase 1 (Python)</div>
+            <small class="text-success fw-semibold">Day 1–2 in progress</small>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="stat">
+            <div class="stat-label">Total Time Logged</div>
+            <div class="stat-num">3+ Hours</div>
+            <small class="muted">Day 0 setup + Day 1 study</small>
+          </div>
+        </div>
+        <div class="col-6 col-lg-3">
+          <div class="stat">
+            <div class="stat-label">Consistency Streak</div>
+            <div class="stat-num">2 Days 🔥</div>
+            <small class="text-success fw-semibold">Day 0 & Day 1 done</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="section">
-<div class="container">
-<div class="panel">
-<div class="title"><i class="bi bi-bar-chart-line text-info"></i> September Progress</div>
-<p class="subtitle">Building Python skills through daily study and practical exercises.</p>
-<div class="d-flex justify-content-between mb-2"><span class="muted">30-Day Goal</span><strong>1 / 30 completed</strong></div>
-<div class="progress"><div class="progress-bar" style="width:3.33%"></div></div>
-<div class="row text-center mt-4 g-3">
-<div class="col-4"><strong>1</strong><div class="small muted">Days Done</div></div>
-<div class="col-4"><strong>2h</strong><div class="small muted">Study Time</div></div>
-<div class="col-4"><strong>1</strong><div class="small muted">Practice Session</div></div>
-</div>
-</div>
-</div>
+<!-- Completed Daily Logs (Strictly Completed Days Only) -->
+<section class="section" id="daily-completed">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-between mb-2">
+      <div class="title"><i class="bi bi-check2-circle text-success"></i> Completed Learning Logs</div>
+      <span class="badge bg-success-subtle text-success-emphasis border border-success-subtle px-3 py-1.5 rounded-pill fw-bold">
+        Showing Only Completed Days (2 Done)
+      </span>
+    </div>
+    <p class="subtitle">Only the days and topics that have actually been studied and executed so far.</p>
+
+    <!-- Day 1 Completed -->
+    <div class="day-card completed-card">
+      <div class="d-flex gap-3 align-items-start">
+        <div class="day-icon">01</div>
+        <div class="flex-grow-1">
+          <div class="d-flex flex-wrap gap-2 align-items-center justify-content-between">
+            <div>
+              <h3 class="day-title mb-0">Day 1 — Python Foundations & Core Concepts</h3>
+              <div class="small text-muted mt-1"><i class="bi bi-calendar-check me-1"></i> Completed on 1 September 2026</div>
+            </div>
+            <span class="badge-pill badge-done"><i class="bi bi-check-lg"></i> COMPLETED</span>
+          </div>
+          <p class="muted mt-2 mb-0">First study session focused on building strong fundamentals: variables, memory understanding, datatypes, casting, and operators.</p>
+        </div>
+      </div>
+
+      <div class="row g-3 mt-3">
+        <div class="col-md-6">
+          <div class="topic">
+            <h6><i class="bi bi-check-circle-fill check me-1"></i> Topics Covered & Understood</h6>
+            <ul>
+              <li><strong>Data Types:</strong> int, float, str, bool, None</li>
+              <li><strong>Variables:</strong> Variable concept, naming rules, multiple variables</li>
+              <li><strong>Memory Allocation:</strong> Basic understanding of how Python references objects in memory</li>
+              <li><strong>Operators:</strong> Arithmetic (+, -, *, /, //, %, **) and assignment basics</li>
+              <li><strong>User Input:</strong> Receiving dynamic input via <code>input()</code></li>
+              <li><strong>Type Casting:</strong> Explicit conversion (<code>int()</code>, <code>float()</code>, <code>str()</code>, <code>bool()</code>)</li>
+              <li><strong>Mutable vs Immutable:</strong> Core concept understood for future data structures</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="topic">
+            <h6>⏱️ Practice & Execution Log</h6>
+            <ul>
+              <li><strong>Study Time:</strong> 2 Hours dedicated</li>
+              <li><strong>Practice:</strong> Completed basic exercises without copying</li>
+              <li><strong>Focus Area:</strong> Python Basics for Data Engineering</li>
+              <li><strong>Outputs Verified:</strong> Type conversion and arithmetic logic working in VS Code</li>
+              <li><strong>Status:</strong> Successfully completed Day 1 checklist ✅</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="callout">
+            <strong>🧠 Day 1 Key Takeaways</strong>
+            <p class="mb-0 mt-1">Practiced how Python handles values dynamically in memory, why <code>input()</code> always returns string data, and how type casting is critical before performing mathematical or pipeline calculations.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 0 Completed -->
+    <div class="day-card completed-card">
+      <div class="d-flex gap-3 align-items-start">
+        <div class="day-icon day0">00</div>
+        <div class="flex-grow-1">
+          <div class="d-flex flex-wrap gap-2 align-items-center justify-content-between">
+            <div>
+              <h3 class="day-title mb-0">Day 0 — Environment Setup & Tooling Orientation</h3>
+              <div class="small text-muted mt-1"><i class="bi bi-tools me-1"></i> Initial Milestone</div>
+            </div>
+            <span class="badge-pill badge-done"><i class="bi bi-check-lg"></i> COMPLETED</span>
+          </div>
+          <p class="muted mt-2 mb-0">Complete developer workstation setup to build real Python scripts and prepare for Data Engineering.</p>
+        </div>
+      </div>
+
+      <div class="row g-3 mt-3">
+        <div class="col-md-6">
+          <div class="topic">
+            <h6><i class="bi bi-check-circle-fill check me-1"></i> Setup Completed</h6>
+            <ul>
+              <li><strong>Python Installation:</strong> Latest Python environment installed and added to PATH</li>
+              <li><strong>VS Code Setup:</strong> IDE configured with Python extension & terminal integration</li>
+              <li><strong>Execution Workflow:</strong> Creating <code>.py</code> files and running scripts through terminal</li>
+              <li><strong>Basic Syntax:</strong> Ran first <code>print()</code> and verified environment works cleanly</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="topic">
+            <h6>⚙️ Environment Specs</h6>
+            <ul>
+              <li><strong>Editor:</strong> Visual Studio Code</li>
+              <li><strong>Interpreter:</strong> Python 3.x</li>
+              <li><strong>Terminal:</strong> PowerShell / Windows Terminal</li>
+              <li><strong>Status:</strong> Workspace 100% ready for coding</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
-<section class="section" id="roadmap">
-<div class="container">
-<div class="title"><i class="bi bi-signpost-2 text-primary"></i> 30-Day Roadmap</div>
-<p class="subtitle">Python fundamentals → APIs → Pandas → MySQL → ETL Project</p>
-<div class="panel">
-<div class="roadmap-item done"><strong>Day 0</strong> — Setup & Orientation <span class="float-end">✅</span></div>
-<div class="roadmap-item done"><strong>Day 1–2</strong> — Python Basics <span class="float-end">🟢 In Progress</span></div>
-<div class="roadmap-item"><strong>Day 3</strong> — Operators & Conditions</div>
-<div class="roadmap-item"><strong>Day 4–5</strong> — Loops</div>
-<div class="roadmap-item"><strong>Day 6–7</strong> — Lists & Tuples</div>
-<div class="roadmap-item"><strong>Day 8–10</strong> — Sets & Dictionaries</div>
-<div class="roadmap-item"><strong>Day 11–12</strong> — Strings</div>
-<div class="roadmap-item"><strong>Day 13–15</strong> — Functions</div>
-<div class="roadmap-item"><strong>Day 16–24</strong> — Modules, Exceptions, Files, JSON, APIs & Packages</div>
-<div class="roadmap-item"><strong>Day 25–27</strong> — Pandas</div>
-<div class="roadmap-item"><strong>Day 28</strong> — Python + MySQL</div>
-<div class="roadmap-item"><strong>Day 29</strong> — OOP Basics</div>
-<div class="roadmap-item"><strong>Day 30</strong> — Store Data ETL Pipeline 🚀</div>
-</div>
-</div>
+<!-- Strategy & 1-Hour Daily Study Formula -->
+<section class="section" id="strategy">
+  <div class="container">
+    <div class="panel">
+      <div class="title mb-1"><i class="bi bi-lightning-charge-fill text-warning"></i> Daily Study Method & Golden Rules</div>
+      <p class="subtitle">Designed specifically for working professionals & learners: 1 Hour/Day consistent execution.</p>
+
+      <div class="row g-4">
+        <!-- 1 Hour Breakdown -->
+        <div class="col-lg-4">
+          <div class="rule-box h-100">
+            <h6 class="fw-bold text-primary mb-3"><i class="bi bi-stopwatch-fill me-1"></i> The 1-Hour Daily Formula</h6>
+            <div class="mb-3 p-2.5 rounded bg-light border">
+              <strong class="d-block text-dark">⏱️ 20 Minutes — Concept</strong>
+              <span class="small text-muted">Read theory, understand syntax & watch real code examples.</span>
+            </div>
+            <div class="mb-3 p-2.5 rounded bg-light border">
+              <strong class="d-block text-dark">💻 20 Minutes — Hands-On Coding</strong>
+              <span class="small text-muted">Write code manually in VS Code without copying answers.</span>
+            </div>
+            <div class="p-2.5 rounded bg-light border">
+              <strong class="d-block text-dark">🚀 20 Minutes — 5–15 Practice Questions</strong>
+              <span class="small text-muted">Solve small practical questions and mini exercises.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Golden Rule -->
+        <div class="col-lg-4">
+          <div class="rule-box h-100 border-primary">
+            <h6 class="fw-bold text-dark mb-2">⭐ The 60–70% Golden Rule</h6>
+            <p class="small text-muted mb-3">
+              <em>"Kisi bhi topic par mastery ke liye mat rukna."</em>
+            </p>
+            <div class="alert alert-primary py-2 px-3 small mb-3">
+              <strong>Rule:</strong> Agar kisi topic ka <strong>60–70% basic</strong> samajh aa gaya hai aur tum simple code khud likh sakte ho, <strong>toh turant NEXT topic par jao!</strong>
+            </div>
+            <p class="small text-muted mb-0">
+              Mastery continuous projects aur pipelines banate waqt aayegi, sirf theory repeat karne se nahi.
+            </p>
+          </div>
+        </div>
+
+        <!-- DOs and DONTs -->
+        <div class="col-lg-4">
+          <div class="row g-2">
+            <div class="col-12">
+              <div class="rule-box dos p-3">
+                <strong class="text-success small d-block mb-1"><i class="bi bi-check-circle-fill me-1"></i> WHAT TO DO:</strong>
+                <div class="small text-muted">
+                  Practical coding • Real CSV/JSON data • API calls • MySQL integration • Mini ETL projects
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="rule-box donts p-3">
+                <strong class="text-danger small d-block mb-1"><i class="bi bi-x-circle-fill me-1"></i> WHAT NOT TO DO:</strong>
+                <div class="small text-muted">
+                  Ek topic par 4-5 din waste mat karo • Har topic ke 100 questions mat karo • Advanced CP ya Deep OOP me mat phaso
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Career Pipeline Flow -->
+        <div class="col-12">
+          <div class="pipeline-track text-center">
+            <div class="small fw-bold text-uppercase text-muted mb-2">Final Data Engineering Architecture Flow</div>
+            <div class="d-flex flex-wrap justify-content-center align-items-center gap-1">
+              <span class="pipeline-step"><i class="bi bi-filetype-py text-primary me-1"></i> Python</span>
+              <span class="pipeline-arrow">→</span>
+              <span class="pipeline-step">Data Extraction</span>
+              <span class="pipeline-arrow">→</span>
+              <span class="pipeline-step">Data Cleaning</span>
+              <span class="pipeline-arrow">→</span>
+              <span class="pipeline-step">Data Transformation</span>
+              <span class="pipeline-arrow">→</span>
+              <span class="pipeline-step"><i class="bi bi-database text-info me-1"></i> Database</span>
+              <span class="pipeline-arrow">→</span>
+              <span class="pipeline-step text-primary">ETL Pipeline</span>
+              <span class="pipeline-arrow">→</span>
+              <span class="pipeline-step text-success"><i class="bi bi-wind me-1"></i> Airflow</span>
+              <span class="pipeline-arrow">→</span>
+              <span class="pipeline-step bg-dark text-white">🚀 Data Engineer</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="section" id="daily">
-<div class="container">
-<div class="title"><i class="bi bi-journal-code text-success"></i> Daily Learning Log</div>
-<p class="subtitle">What I studied, practiced and learned each day.</p>
+<!-- 120-Day Macro Roadmap -->
+<section class="section" id="roadmap120">
+  <div class="container">
+    <div class="title"><i class="bi bi-map text-primary"></i> 120-Day Data Engineering Roadmap</div>
+    <p class="subtitle">The complete 4-month progression path from zero to job-ready Data Engineer.</p>
 
-<div class="day-card active">
-<div class="d-flex gap-3 align-items-start">
-<div class="day-icon">01</div>
-<div class="flex-grow-1">
-<div class="d-flex flex-wrap gap-2 align-items-center">
-<h3 class="day-title mb-0">Day 1 — Python Foundations</h3>
-<span class="badge-pill badge-done">COMPLETED</span>
-</div>
-<p class="muted mt-2 mb-0">Today I focused on Python fundamentals and practiced the concepts with exercises.</p>
-</div>
-</div>
+    <div class="row g-3">
+      <!-- Month 1 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="phase-card active">
+          <span class="phase-tag bg-primary text-white">MONTH 1 • IN PROGRESS</span>
+          <h5 class="fw-bold mb-1">Phase 1: Python for DE</h5>
+          <div class="text-muted small mb-2">Days 1 – 30</div>
+          <p class="small text-secondary mb-3">
+            Core syntax, Data structures, Functions, Exceptions, File Handling, JSON, REST APIs, Virtual Environments, Pandas, MySQL & Capstone Store Data ETL Pipeline.
+          </p>
+          <div class="badge-pill badge-active"><i class="bi bi-play-circle-fill"></i> Current Phase</div>
+        </div>
+      </div>
 
-<div class="row g-3 mt-3">
-<div class="col-md-6">
-<div class="topic">
-<h6><i class="bi bi-check-circle check"></i> Topics Covered</h6>
-<ul>
-<li>Data Types</li>
-<li>Variables</li>
-<li>Memory Allocation — basic understanding</li>
-<li>Operators</li>
-<li>User Input</li>
-<li>Type Casting</li>
-<li>Mutable vs Immutable — concept understood</li>
-</ul>
-</div>
-</div>
-<div class="col-md-6">
-<div class="topic">
-<h6>⏱️ Study & Practice</h6>
-<ul>
-<li><strong>Study Time:</strong> 2 Hours</li>
-<li><strong>Practice:</strong> Completed</li>
-<li><strong>Focus:</strong> Python fundamentals</li>
-<li><strong>Status:</strong> Day completed</li>
-</ul>
-</div>
-</div>
-<div class="col-12">
-<div class="callout">
-<strong>🧠 Key Learning</strong>
-<p class="muted mb-0 mt-2">I practiced how Python stores and works with values through variables, how different data types behave, how operators work, how user input is received as text, and why type casting is required for numerical calculations.</p>
-</div>
-</div>
-</div>
-</div>
+      <!-- Month 2 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="phase-card">
+          <span class="phase-tag bg-light text-dark border">MONTH 2</span>
+          <h5 class="fw-bold mb-1">Phase 2: SQL & Linux</h5>
+          <div class="text-muted small mb-2">Days 31 – 60</div>
+          <p class="small text-secondary mb-3">
+            Advanced SQL (CTEs, Window Functions, Joins, Indexing, Performance Tuning), Linux Bash commands, Shell Scripting, Cron jobs & Git/GitHub version control.
+          </p>
+          <div class="badge-pill badge-pending">Upcoming</div>
+        </div>
+      </div>
 
-<div class="day-card next">
-<div class="d-flex gap-3 align-items-start">
-<div class="day-icon" style="background:linear-gradient(135deg,#2563eb,#0891b2)">02</div>
-<div class="flex-grow-1">
-<div class="d-flex flex-wrap gap-2 align-items-center">
-<h3 class="day-title mb-0">Day 2 — Python Basics Continued</h3>
-<span class="badge-pill badge-next">NEXT</span>
-</div>
-<p class="muted mt-2">Continue Python basics with more hands-on practice and strengthen the concepts from Day 1.</p>
-</div>
-</div>
-<div class="row g-3 mt-3">
-<div class="col-md-6">
-<div class="topic">
-<h6>🎯 Planned Focus</h6>
-<ul>
-<li>Revise Day 1 concepts</li>
-<li>More variable & data-type exercises</li>
-<li>Type casting practice</li>
-<li>User-input based programs</li>
-<li>Operator-based problems</li>
-</ul>
-</div>
-</div>
-<div class="col-md-6">
-<div class="topic">
-<h6>💻 Practice Goal</h6>
-<ul>
-<li>Write programs without copying solutions</li>
-<li>Solve 5–15 exercises</li>
-<li>Build small real-world examples</li>
-<li>Explain the code in my own words</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
+      <!-- Month 3 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="phase-card">
+          <span class="phase-tag bg-light text-dark border">MONTH 3</span>
+          <h5 class="fw-bold mb-1">Phase 3: Big Data & Cloud</h5>
+          <div class="text-muted small mb-2">Days 61 – 90</div>
+          <p class="small text-secondary mb-3">
+            Data Warehousing concepts, Snowflake / BigQuery, Cloud fundamentals (AWS S3, IAM, Athena / GCP), Docker containers for pipelines & Advanced Data Extraction.
+          </p>
+          <div class="badge-pill badge-pending">Upcoming</div>
+        </div>
+      </div>
 
-<div class="day-card">
-<div class="d-flex gap-3 align-items-center">
-<div class="day-icon" style="background:#1e293b">03</div>
-<div><h3 class="day-title mb-1">Day 3 — Operators & Conditions</h3><p class="muted mb-0">Upcoming topic: arithmetic, comparison, logical operators, if/elif/else.</p></div>
-</div>
-</div>
-
-</div>
+      <!-- Month 4 -->
+      <div class="col-md-6 col-lg-3">
+        <div class="phase-card">
+          <span class="phase-tag bg-light text-dark border">MONTH 4</span>
+          <h5 class="fw-bold mb-1">Phase 4: Airflow & Projects</h5>
+          <div class="text-muted small mb-2">Days 91 – 120</div>
+          <p class="small text-secondary mb-3">
+            Apache Airflow (DAGs, TaskFlow, Scheduling), Building 2 End-to-End Production Data Pipelines, Portfolio documentation & Interview Preparation.
+          </p>
+          <div class="badge-pill badge-pending">Upcoming</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="section">
-<div class="container">
-<div class="panel text-center">
-<h3 class="fw-bold">🎯 Goal: Python → Data Engineering</h3>
-<p class="muted mb-0">Consistency over perfection. 2 hours every day, practical coding, and one step forward.</p>
-</div>
-</div>
+<!-- Detailed 30-Day Python Phase Plan (All 17 Structured Phases) -->
+<section class="section" id="python-plan">
+  <div class="container">
+    <div class="panel">
+      <div class="d-flex flex-wrap align-items-center justify-content-between mb-2">
+        <div class="title"><i class="bi bi-file-earmark-code text-primary"></i> 30-Day Python Deep Dive (17 Phases)</div>
+        <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-1.5 rounded-pill fw-semibold">
+          Month 1 Curriculum
+        </span>
+      </div>
+      <p class="subtitle">Complete step-by-step curriculum for Python specifically tailored for Data Engineering tasks.</p>
+
+      <div class="roadmap-grid">
+        <!-- Phase 1 -->
+        <div class="roadmap-card current">
+          <div class="d-flex justify-content-between align-items-start mb-1">
+            <span class="badge bg-primary text-white rounded-pill px-2 py-0.5 small">Day 1–2</span>
+            <span class="badge-pill badge-active">In Progress</span>
+          </div>
+          <h6>1. Python Basics & I/O</h6>
+          <p>Intro, Execution, VS Code, Variables, Data Types (int, float, str, bool, None), Type Casting & input/print/f-strings.</p>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="roadmap-card">
+          <div class="d-flex justify-content-between align-items-start mb-1">
+            <span class="badge bg-light text-dark border rounded-pill px-2 py-0.5 small">Day 3</span>
+            <span class="badge-pill badge-pending">Upcoming</span>
+          </div>
+          <h6>2. Operators & Conditions</h6>
+          <p>Arithmetic, Comparison, Logical, Assignment operators, if/elif/else, nested conditions & validation practice.</p>
+        </div>
+
+        <!-- Phase 3 -->
+        <div class="roadmap-card">
+          <div class="d-flex justify-content-between align-items-start mb-1">
+            <span class="badge bg-light text-dark border rounded-pill px-2 py-0.5 small">Day 4–5</span>
+            <span class="badge-pill badge-pending">Upcoming</span>
+          </div>
+          <h6>3. Loops & Iteration</h6>
+          <p>for & while loops, range(), break, continue, pass, nested loops & number sequence processing.</p>
+        </div>
+
+        <!-- Phase 4 -->
+        <div class="roadmap-card">
+          <div class="d-flex justify-content-between align-items-start mb-1">
+            <span class="badge bg-light text-dark border rounded-pill px-2 py-0.5 small">Day 6–7</span>
+            <span class="badge-pill badge-pending">Upcoming</span>
+          </div>
+          <h6>4. Lists & Tuples</h6>
+          <p>Creation, Indexing, Slicing, List methods (append, pop, sort), List Comprehensions & Tuple vs List difference.</p>
+        </div>
+
+        <!-- Phase 5 -->
+        <div class="roadmap-card">
+          <div class="d-flex justify-content-between align-items-start mb-1">
+            <span class="badge bg-light text-dark border rounded-pill px-2 py-0.5 small">Day 8–10</span>
+            <span class="badge-pill badge-pending">Upcoming</span>
+          </div>
+          <h6>5. Sets & Dictionaries</h6>
+          <p>Keys, Values, Nested dictionaries, dict comprehensions, set operations. Critical for API and JSON payloads.</p>
+        </div>
+
+        <!-- Phase 6 -->
+        <div class="roadmap-card">
+          <div class="d-flex justify-content-between align-items-start mb-1">
+            <span class="badge bg-light text-dark border rounded-pill px-2 py-0.5 small">Day 11–12</span>
+            <span class="badge-pill badge-pending">Upcoming</span>
+          </div>
+          <h6>6. Strings & Text Cleaning</h6>
+          <p>Slicing, split(), join(), strip(), replace(), f-strings & practical data cleaning (emails, URLs, strings).</p>
+        </div>
+
+        <!-- Phase 7 -->
+        <div class="roadmap-card">
+          <div class="d-flex justify-content-between align-items-start mb-1">
+            <span class="badge bg-light text-dark border rounded-pill px-2 py-0.5 small">Day 13–15</span>
+            <span class="badge-pill badge-pending">Upcoming</span>
+          </div>
+          <h6>7. Functions & Scope</h6>
+          <p>def, return, parameters, *args, **kwargs, default values, local vs global scope & reusable ETL cleaning functions.</p>
+        </div>
+
+        <!-- Phase 8 -->
+        <div class="roadmap-card">
+          <div class="d-flex justify-content-between align-items-start mb-1">
+            <span class="badge bg-light text-dark border rounded-pill px-2 py-0.5 small">Day 16</span>
+            <span class="badge-pill badge-pending">Upcoming</span>
+          </div>
+          <h6>8. Modules & Packages</h6>
+          <p>import, from ... import, math, random, datetime, os module & creating custom reusable utility modules.</p>
+        </div>
+
+        <!-- Phase 9 -->
+        <div class="roadmap-card">
+          <div class="d-flex justify-content-between align-items-start mb-1">
+            <span class="badge bg-light text-dark border rounded-pill px-2 py-0.5 small">Day 17</span>
+            <span class="badge-pill badge-pending">Upcoming</span>
+          </div>
+          <h6>9. Exception Handling</h6>
+          <p>try, except, else, finally, raise. Resilient error handling for failed API requests and corrupt files.</p>
+        </div>
+
+        <!-- Phase 10 -->
+        <div class="roadmap-card">
+          <div class="d-flex justify-content-between align-items-start mb-1">
+            <span class="badge bg-light text-dark border rounded-pill px-2 py-0.5 small">Day 18–19</span>
+            <span class="badge-pill badge-pending">Upcoming</span>
+          </div>
+          <h6>10. File Handling (TXT & CSV)</h6>
+          <p>with open(), read(), write(), append, CSV reading/writing & working with real disk files.</p>
+        </div>
+
+        <!-- Phase 11 -->
+        <div class="roadmap-card">
+          <div class="d-flex justify-content-between align-items-start mb-1">
+            <span class="badge bg-light text-dark border rounded-pill px-2 py-0.5 small">Day 20</span>
+            <span class="badge-pill badge-pending">Upcoming</span>
+          </div>
+          <h6>11. JSON Processing</h6>
+          <p>json.loads(), json.dumps(), json.load(), json.dump(), handling nested JSON structures for web APIs.</p>
+        </div>
+
+        <!-- Phase 12 -->
+        <div class="roadmap-card">
+          <div class="d-flex justify-content-between align-items-start mb-1">
+            <span class="badge bg-light text-dark border rounded-pill px-2 py-0.5 small">Day 21–23</span>
+            <span class="badge-pill badge-pending">Upcoming</span>
+          </div>
+          <h6>12. Requests & REST APIs</h6>
+          <p>HTTP GET/POST, headers, params, response.json(), status codes, error handling & pagination for data extraction.</p>
+        </div>
+
+        <!-- Phase 13 -->
+        <div class="roadmap-card">
+          <div class="d-flex justify-content-between align-items-start mb-1">
+            <span class="badge bg-light text-dark border rounded-pill px-2 py-0.5 small">Day 24</span>
+            <span class="badge-pill badge-pending">Upcoming</span>
+          </div>
+          <h6>13. Virtual Env & Packages</h6>
+          <p>python -m venv, activate/deactivate, pip install, pip freeze & managing production requirements.txt.</p>
+        </div>
+
+        <!-- Phase 14 -->
+        <div class="roadmap-card">
+          <div class="d-flex justify-content-between align-items-start mb-1">
+            <span class="badge bg-light text-dark border rounded-pill px-2 py-0.5 small">Day 25–27</span>
+            <span class="badge-pill badge-pending">Upcoming</span>
+          </div>
+          <h6>14. Pandas for Data Wrangling</h6>
+          <p>Series, DataFrames, read_csv, loc/iloc filtering, dropna/fillna, drop_duplicates, apply(), groupby & merging.</p>
+        </div>
+
+        <!-- Phase 15 -->
+        <div class="roadmap-card">
+          <div class="d-flex justify-content-between align-items-start mb-1">
+            <span class="badge bg-light text-dark border rounded-pill px-2 py-0.5 small">Day 28</span>
+            <span class="badge-pill badge-pending">Upcoming</span>
+          </div>
+          <h6>15. Python + MySQL Integration</h6>
+          <p>Connecting Python to MySQL database, running SELECT/INSERT/UPDATE queries & bulk loading records.</p>
+        </div>
+
+        <!-- Phase 16 -->
+        <div class="roadmap-card">
+          <div class="d-flex justify-content-between align-items-start mb-1">
+            <span class="badge bg-light text-dark border rounded-pill px-2 py-0.5 small">Day 29</span>
+            <span class="badge-pill badge-pending">Upcoming</span>
+          </div>
+          <h6>16. Practical OOP Basics</h6>
+          <p>Class, Object, __init__(), self, methods. Understanding existing codebase architecture without over-engineering.</p>
+        </div>
+
+        <!-- Phase 17 -->
+        <div class="roadmap-card border-success bg-success-subtle">
+          <div class="d-flex justify-content-between align-items-start mb-1">
+            <span class="badge bg-success text-white rounded-pill px-2 py-0.5 small">Day 30</span>
+            <span class="badge-pill badge-done">Capstone Project</span>
+          </div>
+          <h6 class="text-success-emphasis">17. Store Data ETL Pipeline 🚀</h6>
+          <p class="text-success-emphasis">
+            Fetch API Store Data → Parse JSON → Clean & Deduplicate with Pandas → Export Clean CSV → Ingest into MySQL.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </section>
 
+<!-- Footer -->
 <footer>
-<div class="container">
-<div>© 2026 <strong class="text-white">Himanshu Sharma</strong></div>
-<div class="small mt-2">Python Learning Journey • HTML • CSS • Bootstrap • JavaScript</div>
-</div>
+  <div class="container">
+    <div>© 2026 <strong class="text-dark">Himanshu Sharma</strong> • 120-Day Data Engineering Journey</div>
+    <div class="small mt-1 text-muted">Focus: Practical Coding • APIs • Pandas • SQL • ETL Pipelines • Airflow</div>
+  </div>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
