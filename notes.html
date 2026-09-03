@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Himanshu Sharma - Python Core Study Notes: Variables, Operators, Datatypes, User Input & Typecasting with Real-Life Examples">
+<meta name="description" content="Himanshu Sharma - Python Core Study Notes: Variables, id() Memory, Datatypes, Operators, User Input, Typecasting, Functions & Strings with Real-Life Examples">
 <title>Python Study Notes | Himanshu Sharma</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
@@ -105,7 +105,7 @@ body {
 
 /* Hero Header */
 .notes-hero {
-  padding: 34px 0 20px;
+  padding: 30px 0 16px;
 }
 
 .hero-badge {
@@ -122,14 +122,50 @@ body {
   box-shadow: 0 2px 8px rgba(79, 70, 229, 0.08);
 }
 
+/* Top Horizontal Topic Pills Bar (Sticky Bar for Smooth Tab Switching) */
+.quick-tabs-bar {
+  position: sticky;
+  top: 65px;
+  z-index: 1020;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 0;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+}
+
+.tab-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  background: var(--surface-alt);
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.tab-pill-btn:hover {
+  color: var(--indigo);
+  background: var(--indigo-light);
+  border-color: #c7d2fe;
+  transform: translateY(-1px);
+}
+
 /* Sidebar Quick Nav */
 .sidebar-nav {
   position: sticky;
-  top: 90px;
+  top: 135px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 18px;
-  padding: 20px;
+  padding: 18px;
   box-shadow: var(--card-shadow);
 }
 
@@ -146,13 +182,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 12px;
-  margin-bottom: 6px;
+  padding: 8px 12px;
+  margin-bottom: 4px;
   border-radius: 10px;
   color: var(--text-main);
   text-decoration: none;
   font-weight: 600;
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   transition: all 0.2s ease;
   border: 1px solid transparent;
 }
@@ -165,12 +201,57 @@ body {
 }
 
 .topic-link .badge-count {
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   background: var(--surface-alt);
   color: var(--text-muted);
-  padding: 2px 8px;
+  padding: 2px 7px;
   border-radius: 6px;
   font-weight: 700;
+}
+
+/* Sidebar Tip Card */
+.sidebar-tip-card {
+  background: linear-gradient(135deg, #fdfbf7, #eef2ff);
+  border: 1px solid #c7d2fe;
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.06);
+}
+
+.sidebar-tip-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.tip-icon-glow {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  box-shadow: 0 2px 8px rgba(217, 119, 6, 0.35);
+  flex-shrink: 0;
+}
+
+.tip-title-text {
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #312e81;
+  letter-spacing: 0.3px;
+}
+
+.tip-body-text {
+  font-size: 0.82rem;
+  color: #475569;
+  line-height: 1.5;
+  margin: 0;
+  font-weight: 500;
 }
 
 /* Topic Note Card */
@@ -178,11 +259,11 @@ body {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 20px;
-  padding: 28px;
+  padding: 26px 28px;
   margin-bottom: 28px;
   box-shadow: var(--card-shadow);
   transition: all 0.25s ease;
-  scroll-margin-top: 90px;
+  scroll-margin-top: 130px;
 }
 
 .note-section-card:hover {
@@ -194,19 +275,19 @@ body {
   display: flex;
   align-items: center;
   gap: 14px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   padding-bottom: 16px;
   border-bottom: 1px solid var(--border);
 }
 
 .topic-num-icon {
-  width: 46px;
-  height: 46px;
-  border-radius: 14px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 800;
   color: #fff;
   background: linear-gradient(135deg, var(--indigo), var(--blue));
@@ -236,9 +317,9 @@ body {
 /* Rules Grid */
 .rules-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .rule-pill-item {
@@ -281,7 +362,7 @@ body {
   border: 1px solid #bbf7d0;
   padding: 6px 14px;
   border-radius: 8px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 /* Code Example Boxes (macOS Terminal Style) */
@@ -289,7 +370,7 @@ body {
   background: #090d16;
   border-radius: 14px;
   overflow: hidden;
-  margin-top: 6px;
+  margin-top: 4px;
   border: 1px solid #1e293b;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
@@ -386,7 +467,7 @@ body {
 .hl-num { color: #fb923c; }
 .hl-op { color: #f472b6; }
 
-/* ================= MODERN TRAP & ERROR CARD DESIGN ================= */
+/* Trap & Gotcha Boxes */
 .gotcha-box {
   background: #ffffff;
   border: 1px solid #fecaca;
@@ -428,14 +509,14 @@ body {
   padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .gotcha-card {
   background: #fafafa;
   border: 1px solid #f1f5f9;
   border-radius: 12px;
-  padding: 14px 16px;
+  padding: 12px 16px;
   transition: all 0.2s ease;
 }
 
@@ -491,13 +572,23 @@ body {
   font-weight: 600;
 }
 
-/* Float Conversion Card */
+/* Feature & Highlight Cards */
 .info-highlight-card {
   background: #f0fdfa;
   border: 1px solid #99f6e4;
   border-radius: 14px;
   padding: 16px 18px;
   margin-top: 14px;
+}
+
+.matrix-table {
+  font-family: 'JetBrains Mono', monospace;
+  text-align: center;
+  font-size: 0.86rem;
+}
+
+.matrix-table th, .matrix-table td {
+  padding: 8px 12px;
 }
 
 /* Footer */
@@ -534,6 +625,11 @@ footer {
             <i class="bi bi-journal-code text-primary me-1"></i> Study Notes 📝
           </a>
         </li>
+        <li>
+          <button class="btn btn-sm btn-primary rounded-pill px-3 py-1.5 fw-bold shadow-sm d-inline-flex align-items-center gap-1.5" data-bs-toggle="modal" data-bs-target="#pythonPlaygroundModal">
+            <i class="bi bi-play-circle-fill text-warning"></i> <span>Python Editor ⚡</span>
+          </button>
+        </li>
       </ul>
     </div>
   </div>
@@ -547,20 +643,40 @@ footer {
         <div class="hero-badge mb-2">
           <i class="bi bi-patch-check-fill text-primary"></i> Python Core Quick Revision Notes
         </div>
-        <h1 class="fw-bold mb-1">Python Basics & Core Concepts 🚀</h1>
-        <p class="text-muted mb-0">Clean explanations with <strong>2 Real-World Practical Examples</strong> each in exact logical sequence.</p>
+        <h1 class="fw-bold mb-1">Python Study Notes & Code Library 🚀</h1>
+        <p class="text-muted mb-0">Clean explanations with <strong>Real-World Practical Examples</strong> in exact logical progression.</p>
       </div>
-      <div>
+      <div class="d-flex align-items-center gap-2">
+        <button class="btn btn-primary btn-sm px-3.5 py-1.5 rounded-pill fw-bold shadow-sm d-inline-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#pythonPlaygroundModal">
+          <i class="bi bi-terminal-fill text-warning"></i> <span>Open Code Runner ⚡</span>
+        </button>
         <a href="index.html" class="btn btn-outline-secondary btn-sm px-3 rounded-pill">
-          <i class="bi bi-house-door me-1"></i> Back to Dashboard
+          <i class="bi bi-house-door me-1"></i> Dashboard
         </a>
       </div>
     </div>
   </div>
 </section>
 
+<!-- Quick Horizontal Navigation Tabs (Sticky) -->
+<div class="quick-tabs-bar">
+  <div class="container">
+    <div class="d-flex align-items-center gap-2 overflow-x-auto py-1">
+      <span class="small text-muted fw-bold text-uppercase me-1"><i class="bi bi-compass"></i> JUMP:</span>
+      <a href="#topic-variables" class="tab-pill-btn">1. Variables & id()</a>
+      <a href="#topic-datatypes" class="tab-pill-btn">2. Data Types</a>
+      <a href="#topic-operators" class="tab-pill-btn">3. Operators</a>
+      <a href="#topic-userinput" class="tab-pill-btn">4. User Input</a>
+      <a href="#topic-typecasting" class="tab-pill-btn">5. Type Casting</a>
+      <a href="#topic-functions" class="tab-pill-btn">6. Functions</a>
+      <a href="#topic-strings" class="tab-pill-btn text-primary fw-bold border-primary">7. Strings & Slicing ✨</a>
+      <a href="#topic-summary" class="tab-pill-btn">Summary Table</a>
+    </div>
+  </div>
+</div>
+
 <!-- Main Notes Section -->
-<div class="container py-3">
+<div class="container py-4">
   <div class="row g-4">
     
     <!-- Sidebar Navigation -->
@@ -568,7 +684,7 @@ footer {
       <div class="sidebar-nav">
         <div class="sidebar-title">Topics in Sequence</div>
         <a href="#topic-variables" class="topic-link">
-          <span>1. Variables</span>
+          <span>1. Variables & id()</span>
           <span class="badge-count">2 Ex</span>
         </a>
         <a href="#topic-datatypes" class="topic-link">
@@ -587,10 +703,28 @@ footer {
           <span>5. Type Casting</span>
           <span class="badge-count">2 Ex</span>
         </a>
-        <hr class="my-3 text-muted">
-        <div class="p-2.5 rounded bg-primary-subtle border border-primary-subtle">
-          <small class="text-primary fw-bold d-block"><i class="bi bi-lightbulb-fill me-1"></i> Quick Tip:</small>
-          <small class="text-secondary">Copy button use karke kisi bhi example ko VS Code me test kar sakte hain.</small>
+        <a href="#topic-functions" class="topic-link">
+          <span>6. Functions</span>
+          <span class="badge-count">2 Ex</span>
+        </a>
+        <a href="#topic-strings" class="topic-link">
+          <span>7. Strings & Methods</span>
+          <span class="badge-count">3 Ex</span>
+        </a>
+        <a href="#topic-summary" class="topic-link">
+          <span>Cheat Sheet Table</span>
+          <span class="badge-count">7 Rows</span>
+        </a>
+        <div class="sidebar-tip-card mt-3">
+          <div class="sidebar-tip-header">
+            <div class="tip-icon-glow">
+              <i class="bi bi-lightbulb-fill"></i>
+            </div>
+            <div class="tip-title-text">Study & Practice Tip</div>
+          </div>
+          <p class="tip-body-text">
+            Har example me diye gaye <strong>Copy</strong> button se code copy karke seedha VS Code me run & test karein.
+          </p>
         </div>
       </div>
     </div>
@@ -598,18 +732,36 @@ footer {
     <!-- Main Content Column -->
     <div class="col-lg-9">
 
-      <!-- ================= 1. VARIABLES ================= -->
+      <!-- ================= 1. VARIABLES & id() ================= -->
       <section id="topic-variables" class="note-section-card">
         <div class="topic-header">
           <div class="topic-num-icon">01</div>
           <div>
-            <h2 class="topic-title">1. Python Variables (वैरिएबल्स)</h2>
+            <h2 class="topic-title">1. Python Variables & <code>id()</code> Memory Address</h2>
             <small class="text-muted">Named memory container used to store values.</small>
           </div>
         </div>
 
         <div class="key-summary-box">
-          <strong>💡 Definition:</strong> Variable ek <em>storage box</em> ki tarah hota hai jisme hum value (number, text, etc.) store karte hain taaki aage code me reuse kar sakein. Python dynamically typed language hai, isliye datatype declare nahi karna padta.
+          <strong>💡 Definition:</strong> Variable ek <em>storage label</em> hota hai jo memory me kisi value ko point karta hai. Python dynamically typed language hai, isliye datatype declare nahi karna padta.
+        </div>
+
+        <!-- NEW id() Function Card -->
+        <div class="p-3 rounded-3 bg-light border mb-3">
+          <div class="d-flex align-items-center gap-2 mb-2">
+            <span class="badge bg-primary px-2.5 py-1.5"><i class="bi bi-memory me-1"></i> Python id() Function:</span>
+            <strong class="text-dark">Memory Identity Check</strong>
+          </div>
+          <p class="small text-secondary mb-2">
+            <code>id(variable_name)</code> har object ka <strong>unique memory address (integer)</strong> return karta hai jahan RAM me wo value exist karti hai.
+          </p>
+          <div class="p-2 rounded bg-dark text-light font-monospace small">
+            <span class="text-secondary"># Agar do variables same value point kar rahe hain toh dono ka id() same hoga:</span><br>
+            a = <span class="text-warning">100</span><br>
+            b = <span class="text-warning">100</span><br>
+            <span class="text-info">print</span>(<span class="text-info">id</span>(a)) &nbsp;<span class="text-success"># Output: 140735284931232 (Memory location)</span><br>
+            <span class="text-info">print</span>(<span class="text-info">id</span>(b)) &nbsp;<span class="text-success"># Output: 140735284931232 (Same memory address!)</span>
+          </div>
         </div>
 
         <h6 class="fw-bold mb-2.5 text-dark"><i class="bi bi-list-check text-primary me-1"></i> Naming Rules (Short & Clear):</h6>
@@ -953,7 +1105,7 @@ distance_str = <span class="hl-func">input</span>(<span class="hl-str">"Enter di
           </div>
         </div>
 
-        <!-- NEW MODERN REDESIGNED GOTCHA BOX -->
+        <!-- MODERN GOTCHA BOX -->
         <div class="gotcha-box">
           <div class="gotcha-header">
             <div class="gotcha-header-icon">
@@ -1083,14 +1235,637 @@ new_salary = current_salary + increment_amount
         </div>
       </section>
 
-      <!-- Quick Summary Cheat Sheet Table -->
-      <div class="note-section-card bg-light border">
+      <!-- ================= 6. FUNCTIONS ================= -->
+      <section id="topic-functions" class="note-section-card">
+        <div class="topic-header">
+          <div class="topic-num-icon">06</div>
+          <div>
+            <h2 class="topic-title">6. Python Functions (फ़ंक्शन्स)</h2>
+            <small class="text-muted">Reusable block of organized code designed to perform a specific task.</small>
+          </div>
+        </div>
+
+        <div class="key-summary-box">
+          <strong>💡 Definition & Core Purpose:</strong> Function ek <em>reusable code block</em> hota hai jise hum <code>def</code> keyword se banate hain. Iska main principle hota hai <strong>DRY (Don't Repeat Yourself)</strong> — ek baar likho aur dynamically inputs pass karke multiple times call karo.
+        </div>
+
+        <!-- Function Key Sub-Concepts Grid -->
+        <div class="row g-3 mb-3">
+          <div class="col-md-6">
+            <div class="p-3 bg-light rounded-3 border h-100">
+              <h6 class="fw-bold text-primary mb-2"><i class="bi bi-diagram-3-fill me-1"></i> Types of Functions</h6>
+              <ul class="small text-secondary mb-0 ps-3">
+                <li><strong>Built-in:</strong> Pre-installed jaise <code>print()</code>, <code>len()</code>, <code>type()</code>, <code>sum()</code>, <code>id()</code>.</li>
+                <li><strong>User-Defined:</strong> Jo programmer khud <code>def</code> keyword se define karta hai.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="p-3 bg-light rounded-3 border h-100">
+              <h6 class="fw-bold text-primary mb-2"><i class="bi bi-arrow-left-right me-1"></i> Parameters vs Arguments</h6>
+              <ul class="small text-secondary mb-0 ps-3">
+                <li><strong>Parameters:</strong> Function definition ke time wale placeholders (<code>def f(x, y):</code>).</li>
+                <li><strong>Arguments:</strong> Function call karte waqt pass ki gayi actual values (<code>f(10, 20)</code>).</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="p-3 bg-light rounded-3 border h-100">
+              <h6 class="fw-bold text-teal mb-2"><i class="bi bi-sliders me-1"></i> 4 Ways to Pass Arguments</h6>
+              <ul class="small text-secondary mb-0 ps-3">
+                <li><strong>Positional:</strong> Order ke according pass hote hain.</li>
+                <li><strong>Keyword:</strong> Name specify karke (<code>rate=0.18</code>).</li>
+                <li><strong>Default:</strong> Fallback parameters (<code>def db(port=3306):</code>).</li>
+                <li><strong>*args & **kwargs:</strong> Dynamic multiple inputs lene ke liye.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="p-3 bg-light rounded-3 border h-100">
+              <h6 class="fw-bold text-teal mb-2"><i class="bi bi-arrow-return-left me-1"></i> Return vs Non-Return</h6>
+              <ul class="small text-secondary mb-0 ps-3">
+                <li><strong>Return (<code>return</code>):</strong> Result wapas deta hai jisko variable me capture karke aage use kar sakte hain.</li>
+                <li><strong>Non-Return:</strong> Sirf print karta hai aur memory me <code>None</code> return karta hai.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scope Highlight Card -->
+        <div class="info-highlight-card mb-3">
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <i class="bi bi-globe2 text-teal fs-5"></i>
+            <strong class="text-dark">Scope of Variables (Local vs Global Scope):</strong>
+          </div>
+          <div class="row g-2 mt-1 small">
+            <div class="col-md-6">
+              <div class="p-2.5 rounded bg-white border">
+                <strong class="text-primary">1. Local Scope:</strong> Function ke andar banta hai aur bahar inaccessible hota hai (NameError).
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-2.5 rounded bg-white border">
+                <strong class="text-success">2. Global Scope:</strong> Function ke bahar banta hai aur pure script me accessible hota hai. Modify karne ke liye <code>global</code> keyword lagta hai.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Example 1 -->
+        <div class="mt-4">
+          <span class="real-world-tag"><i class="bi bi-funnel-fill"></i> Real Example 1: ETL Pipeline Data Sanitizer & Currency Formatter</span>
+          <div class="example-box">
+            <div class="example-header">
+              <div class="mac-dots">
+                <span class="mac-dot red"></span>
+                <span class="mac-dot yellow"></span>
+                <span class="mac-dot green"></span>
+              </div>
+              <span class="example-badge"><i class="bi bi-filetype-py"></i> etl_cleaner.py</span>
+              <button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-copy"></i> Copy</button>
+            </div>
+            <pre class="code-content"><span class="hl-keyword">def</span> <span class="hl-func">clean_and_format_price</span>(raw_price_str, currency_symbol=<span class="hl-str">"Rs."</span>):
+    <span class="hl-comment"># Local variable: sirf is function ke andar access hoga</span>
+    cleaned_number = <span class="hl-func">float</span>(raw_price_str.<span class="hl-func">strip</span>().<span class="hl-func">replace</span>(<span class="hl-str">","</span>, <span class="hl-str">""</span>))
+    formatted_output = f<span class="hl-str">"{currency_symbol} {cleaned_number:,.2f}"</span>
+    <span class="hl-keyword">return</span> formatted_output   <span class="hl-comment"># Output wapas return kiya</span>
+
+<span class="hl-comment"># Calling function with default currency (Positional Argument)</span>
+item1 = <span class="hl-func">clean_and_format_price</span>(<span class="hl-str">" 14,500.50 "</span>)
+
+<span class="hl-comment"># Calling with custom currency symbol (Keyword Argument)</span>
+item2 = <span class="hl-func">clean_and_format_price</span>(<span class="hl-str">"299.99"</span>, currency_symbol=<span class="hl-str">"$"</span>)
+
+<span class="hl-func">print</span>(f<span class="hl-str">"Processed Record 1: {item1}"</span>)
+<span class="hl-func">print</span>(f<span class="hl-str">"Processed Record 2: {item2}"</span>)</pre>
+            <div class="code-output">
+              <span class="label">Output:</span><br>
+              Processed Record 1: Rs. 14,500.50<br>
+              Processed Record 2: $ 299.99
+            </div>
+          </div>
+        </div>
+
+        <!-- Example 2 -->
+        <div class="mt-4">
+          <span class="real-world-tag"><i class="bi bi-receipt-cutoff"></i> Real Example 2: E-Commerce Bill Engine & Global Sales Counter (Scope & Return)</span>
+          <div class="example-box">
+            <div class="example-header">
+              <div class="mac-dots">
+                <span class="mac-dot red"></span>
+                <span class="mac-dot yellow"></span>
+                <span class="mac-dot green"></span>
+              </div>
+              <span class="example-badge"><i class="bi bi-filetype-py"></i> checkout_engine.py</span>
+              <button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-copy"></i> Copy</button>
+            </div>
+            <pre class="code-content"><span class="hl-comment"># Global variable: Pure application ka total revenue track karne ke liye</span>
+total_store_revenue = <span class="hl-num">0.0</span>
+
+<span class="hl-keyword">def</span> <span class="hl-func">calculate_order_bill</span>(cart_items_count, item_rate, discount_percent=<span class="hl-num">5.0</span>):
+    <span class="hl-keyword">global</span> total_store_revenue  <span class="hl-comment"># Global variable update karne ki permission</span>
+    
+    subtotal = cart_items_count * item_rate
+    discount_amount = (subtotal * discount_percent) / <span class="hl-num">100</span>
+    final_payable = subtotal - discount_amount
+    
+    total_store_revenue += final_payable  <span class="hl-comment"># Global update</span>
+    <span class="hl-keyword">return</span> final_payable                  <span class="hl-comment"># Return calculated amount</span>
+
+order1 = <span class="hl-func">calculate_order_bill</span>(cart_items_count=<span class="hl-num">4</span>, item_rate=<span class="hl-num">500</span>)
+order2 = <span class="hl-func">calculate_order_bill</span>(cart_items_count=<span class="hl-num">2</span>, item_rate=<span class="hl-num">1200</span>, discount_percent=<span class="hl-num">10.0</span>)
+
+<span class="hl-func">print</span>(f<span class="hl-str">"Order 1: Rs. {order1:.2f} | Order 2: Rs. {order2:.2f}"</span>)
+<span class="hl-func">print</span>(f<span class="hl-str">"Total Store Revenue: Rs. {total_store_revenue:.2f}"</span>)</pre>
+            <div class="code-output">
+              <span class="label">Output:</span><br>
+              Order 1: Rs. 1900.00 | Order 2: Rs. 2160.00<br>
+              Total Store Revenue: Rs. 4060.00
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 7. STRINGS, INDEXING & SLICING ================= -->
+      <section id="topic-strings" class="note-section-card">
+        <div class="topic-header">
+          <div class="topic-num-icon">07</div>
+          <div>
+            <h2 class="topic-title">7. Python Strings (स्ट्रिंग्स), Indexing, Slicing & All Methods</h2>
+            <small class="text-muted">Text manipulation, slicing step rules, and ETL text cleaning methods.</small>
+          </div>
+        </div>
+
+        <div class="key-summary-box">
+          <strong>💡 Definition & Immutability:</strong> String characters ka sequence hota hai jo single (<code>' '</code>) ya double (<code>" "</code>) quotes me likha jata hai. <br>
+          <span class="text-danger fw-bold">⚠️ Core Rule:</span> Python Strings <strong>Immutable</strong> hoti hain — yaani ek baar banne ke baad inke kisi character ko direct change nahi kiya ja sakta (e.g. <code>text[0] = 'A'</code> ❌ TypeError deta hai).
+        </div>
+
+        <!-- Indexing Visual Diagram -->
+        <h6 class="fw-bold mb-2 text-dark"><i class="bi bi-grid-3x3-gap-fill text-primary me-1"></i> String Indexing Matrix (Positive & Negative Indexing):</h6>
+        <div class="table-responsive mb-3">
+          <table class="table table-bordered matrix-table bg-white align-middle shadow-sm">
+            <thead class="table-primary text-primary-emphasis">
+              <tr>
+                <th class="bg-primary text-white">Characters</th>
+                <td>P</td>
+                <td>Y</td>
+                <td>T</td>
+                <td>H</td>
+                <td>O</td>
+                <td>N</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th class="table-light">Positive Index (Left to Right)</th>
+                <td class="fw-bold text-primary">0</td>
+                <td class="fw-bold text-primary">1</td>
+                <td class="fw-bold text-primary">2</td>
+                <td class="fw-bold text-primary">3</td>
+                <td class="fw-bold text-primary">4</td>
+                <td class="fw-bold text-primary">5</td>
+              </tr>
+              <tr>
+                <th class="table-light">Negative Index (Right to Left)</th>
+                <td class="fw-bold text-danger">-6</td>
+                <td class="fw-bold text-danger">-5</td>
+                <td class="fw-bold text-danger">-4</td>
+                <td class="fw-bold text-danger">-3</td>
+                <td class="fw-bold text-danger">-2</td>
+                <td class="fw-bold text-danger">-1</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Slicing Syntax Breakdown -->
+        <div class="p-3 rounded-3 bg-light border mb-4">
+          <h6 class="fw-bold text-dark mb-2"><i class="bi bi-scissors text-danger me-1"></i> String Slicing & Stepping Formula: <code>string[start : stop : step]</code></h6>
+          <div class="row g-2 small">
+            <div class="col-md-4">
+              <div class="p-2 bg-white rounded border">
+                <strong>1. <code>start</code>:</strong> Starting index (Inclusive - yahan se shuru karega).
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="p-2 bg-white rounded border">
+                <strong>2. <code>stop</code>:</strong> Ending index (Exclusive - is index se 1 pehle ruk jayega).
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="p-2 bg-white rounded border">
+                <strong>3. <code>step</code>:</strong> Kitne jump lene hain (Default <code>1</code>, negative se reverse).
+              </div>
+            </div>
+          </div>
+          <div class="p-2 rounded bg-dark text-light font-monospace small mt-2">
+            text = <span class="text-warning">"DATAENGINEER"</span><br>
+            text[<span class="text-info">0:4</span>] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success"># 'DATA' (Index 0 to 3)</span><br>
+            text[<span class="text-info">4:</span>] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success"># 'ENGINEER' (Index 4 se end tak)</span><br>
+            text[<span class="text-info">::2</span>] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success"># 'DTEGNE' (Har 2nd character jump)</span><br>
+            text[<span class="text-info">::-1</span>] &nbsp;&nbsp;&nbsp;&nbsp;<span class="text-success"># 'REENIGNEATAD' (Pure string ko REVERSE karna)</span>
+          </div>
+        </div>
+
+        <!-- ================= STRING METHODS DEEP DIVE WITH 2 REAL EXAMPLES EACH ================= -->
+        <h5 class="fw-bold text-dark mt-4 mb-3"><i class="bi bi-collection-play-fill text-primary me-2"></i>All Essential String Functions with 2 Real-Life Examples Each:</h5>
+
+        <!-- Function 1: .lower() & .upper() -->
+        <div class="mb-4">
+          <div class="p-3 bg-light rounded-3 border">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+              <h6 class="fw-bold text-primary mb-0"><i class="bi bi-type me-1"></i> 1. <code>.lower()</code> & <code>.upper()</code></h6>
+              <span class="badge bg-primary-subtle text-primary border border-primary-subtle">Case Normalization</span>
+            </div>
+            <p class="small text-secondary mb-2"><strong>Real Use:</strong> Case-insensitive login verification aur standard country/currency codes format karne ke liye.</p>
+            
+            <div class="row g-2">
+              <div class="col-md-6">
+                <span class="real-world-tag"><i class="bi bi-shield-check"></i> Ex 1: Case-Insensitive Email Login</span>
+                <div class="example-box">
+                  <div class="example-header">
+                    <span class="example-badge">login_check.py</span>
+                    <button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-copy"></i> Copy</button>
+                  </div>
+                  <pre class="code-content">db_email = <span class="hl-str">"himanshu@data.com"</span>
+user_input = <span class="hl-str">"  Himanshu@DATA.com  "</span>
+
+<span class="hl-comment"># Normalize to lowercase before matching</span>
+is_valid_user = user_input.<span class="hl-func">strip</span>().<span class="hl-func">lower</span>() == db_email
+<span class="hl-func">print</span>(f<span class="hl-str">"Login Authorized: {is_valid_user}"</span>)</pre>
+                  <div class="code-output"><span class="label">Output:</span> Login Authorized: True</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <span class="real-world-tag"><i class="bi bi-currency-exchange"></i> Ex 2: Currency Code Standardization</span>
+                <div class="example-box">
+                  <div class="example-header">
+                    <span class="example-badge">currency_norm.py</span>
+                    <button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-copy"></i> Copy</button>
+                  </div>
+                  <pre class="code-content">raw_currency = <span class="hl-str">"inr"</span>
+iso_code = raw_currency.<span class="hl-func">upper</span>()   <span class="hl-comment"># 'INR'</span>
+price = <span class="hl-num">4500</span>
+
+<span class="hl-func">print</span>(f<span class="hl-str">"Formatted Amount: {iso_code} {price}"</span>)</pre>
+                  <div class="code-output"><span class="label">Output:</span> Formatted Amount: INR 4500</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Function 2: .title() & .capitalize() -->
+        <div class="mb-4">
+          <div class="p-3 bg-light rounded-3 border">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+              <h6 class="fw-bold text-success mb-0"><i class="bi bi-fonts me-1"></i> 2. <code>.title()</code> & <code>.capitalize()</code></h6>
+              <span class="badge bg-success-subtle text-success border border-success-subtle">Name & Sentence Formatting</span>
+            </div>
+            <p class="small text-secondary mb-2"><strong>Real Use:</strong> User full names ko proper capitalization me lana aur invoice/news headlines banana.</p>
+            
+            <div class="row g-2">
+              <div class="col-md-6">
+                <span class="real-world-tag"><i class="bi bi-person-badge"></i> Ex 1: Customer Full Name Formatting</span>
+                <div class="example-box">
+                  <div class="example-header">
+                    <span class="example-badge">name_format.py</span>
+                    <button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-copy"></i> Copy</button>
+                  </div>
+                  <pre class="code-content">raw_name = <span class="hl-str">"hIMANSHU sHARMA"</span>
+proper_name = raw_name.<span class="hl-func">title</span>()   <span class="hl-comment"># Har word ka 1st letter capital</span>
+
+<span class="hl-func">print</span>(f<span class="hl-str">"Customer on Invoice: {proper_name}"</span>)</pre>
+                  <div class="code-output"><span class="label">Output:</span> Customer on Invoice: Himanshu Sharma</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <span class="real-world-tag"><i class="bi bi-chat-left-text"></i> Ex 2: Log Status Message Formatting</span>
+                <div class="example-box">
+                  <div class="example-header">
+                    <span class="example-badge">status_message.py</span>
+                    <button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-copy"></i> Copy</button>
+                  </div>
+                  <pre class="code-content">status = <span class="hl-str">"pipeline execution SUCCESSFUL"</span>
+clean_msg = status.<span class="hl-func">capitalize</span>()  <span class="hl-comment"># Sirf pehla letter capital</span>
+
+<span class="hl-func">print</span>(f<span class="hl-str">"Log Status: {clean_msg}"</span>)</pre>
+                  <div class="code-output"><span class="label">Output:</span> Log Status: Pipeline execution successful</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Function 3: .strip(), .lstrip(), .rstrip() -->
+        <div class="mb-4">
+          <div class="p-3 bg-light rounded-3 border">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+              <h6 class="fw-bold text-teal mb-0"><i class="bi bi-brush-fill me-1"></i> 3. <code>.strip()</code>, <code>.lstrip()</code>, <code>.rstrip()</code></h6>
+              <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Whitespace & Junk Trimming</span>
+            </div>
+            <p class="small text-secondary mb-2"><strong>Real Use:</strong> Database aur CSV files me unwanted extra spaces, tabs, newlines hatana.</p>
+            
+            <div class="row g-2">
+              <div class="col-md-6">
+                <span class="real-world-tag"><i class="bi bi-file-earmark-text"></i> Ex 1: CSV Line Whitespace & Newline Clean</span>
+                <div class="example-box">
+                  <div class="example-header">
+                    <span class="example-badge">csv_clean.py</span>
+                    <button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-copy"></i> Copy</button>
+                  </div>
+                  <pre class="code-content">raw_csv_row = <span class="hl-str">"   101,Himanshu,Engineer\n\t  "</span>
+cleaned_row = raw_csv_row.<span class="hl-func">strip</span>()
+
+<span class="hl-func">print</span>(f<span class="hl-str">"Cleaned CSV Line: '{cleaned_row}'"</span>)</pre>
+                  <div class="code-output"><span class="label">Output:</span> Cleaned CSV Line: '101,Himanshu,Engineer'</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <span class="real-world-tag"><i class="bi bi-currency-dollar"></i> Ex 2: Stripping Currency Symbol from Left</span>
+                <div class="example-box">
+                  <div class="example-header">
+                    <span class="example-badge">strip_symbol.py</span>
+                    <button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-copy"></i> Copy</button>
+                  </div>
+                  <pre class="code-content">price_str = <span class="hl-str">"$999.50"</span>
+pure_number = <span class="hl-func">float</span>(price_str.<span class="hl-func">lstrip</span>(<span class="hl-str">"$"</span>))
+
+<span class="hl-func">print</span>(f<span class="hl-str">"Calculable Number: {pure_number} | Type: {type(pure_number)}"</span>)</pre>
+                  <div class="code-output"><span class="label">Output:</span> Calculable Number: 999.5 | Type: &lt;class 'float'&gt;</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Function 4: .replace(old, new) -->
+        <div class="mb-4">
+          <div class="p-3 bg-light rounded-3 border">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+              <h6 class="fw-bold text-danger mb-0"><i class="bi bi-arrow-repeat me-1"></i> 4. <code>.replace(old, new)</code></h6>
+              <span class="badge bg-danger-subtle text-danger border border-danger-subtle">Symbol & Text Replacement</span>
+            </div>
+            <p class="small text-secondary mb-2"><strong>Real Use:</strong> Dirty numbers se comma/symbols hatana aur URL slug ya masking banana.</p>
+            
+            <div class="row g-2">
+              <div class="col-md-6">
+                <span class="real-world-tag"><i class="bi bi-cash-coin"></i> Ex 1: Comma-Separated Price Sanitization</span>
+                <div class="example-box">
+                  <div class="example-header">
+                    <span class="example-badge">price_cleaner.py</span>
+                    <button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-copy"></i> Copy</button>
+                  </div>
+                  <pre class="code-content">raw_revenue = <span class="hl-str">"1,250,000.50"</span>
+clean_revenue = <span class="hl-func">float</span>(raw_revenue.<span class="hl-func">replace</span>(<span class="hl-str">","</span>, <span class="hl-str">""</span>))
+
+<span class="hl-func">print</span>(f<span class="hl-str">"Total Pipeline Revenue: Rs. {clean_revenue:,.2f}"</span>)</pre>
+                  <div class="code-output"><span class="label">Output:</span> Total Pipeline Revenue: Rs. 1,250,000.50</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <span class="real-world-tag"><i class="bi bi-link-45deg"></i> Ex 2: Blog Title to URL Slug Generation</span>
+                <div class="example-box">
+                  <div class="example-header">
+                    <span class="example-badge">url_slug.py</span>
+                    <button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-copy"></i> Copy</button>
+                  </div>
+                  <pre class="code-content">title = <span class="hl-str">"Python Roadmap For Data Engineering"</span>
+slug = title.<span class="hl-func">lower</span>().<span class="hl-func">replace</span>(<span class="hl-str">" "</span>, <span class="hl-str">"-"</span>)
+
+<span class="hl-func">print</span>(f<span class="hl-str">"Web URL: https://mysite.com/posts/{slug}"</span>)</pre>
+                  <div class="code-output"><span class="label">Output:</span> Web URL: https://mysite.com/posts/python-roadmap-for-data-engineering</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Function 5: .split() & .join() -->
+        <div class="mb-4">
+          <div class="p-3 bg-light rounded-3 border">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+              <h6 class="fw-bold text-amber mb-0"><i class="bi bi-diagram-2-fill me-1"></i> 5. <code>.split(delim)</code> & <code>.join(list)</code></h6>
+              <span class="badge bg-warning-subtle text-dark border border-warning-subtle">Tokenize & Reassemble</span>
+            </div>
+            <p class="small text-secondary mb-2"><strong>Real Use:</strong> CSV rows ko parse karna (String $\rightarrow$ List) aur List ko wapas formatted text banana (List $\rightarrow$ String).</p>
+            
+            <div class="row g-2">
+              <div class="col-md-6">
+                <span class="real-world-tag"><i class="bi bi-file-spreadsheet"></i> Ex 1: CSV Line Parsing (.split)</span>
+                <div class="example-box">
+                  <div class="example-header">
+                    <span class="example-badge">csv_parser.py</span>
+                    <button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-copy"></i> Copy</button>
+                  </div>
+                  <pre class="code-content">record = <span class="hl-str">"HS101,Himanshu,DataEngineer,95000"</span>
+columns = record.<span class="hl-func">split</span>(<span class="hl-str">","</span>)   <span class="hl-comment"># Returns List of 4 items</span>
+
+<span class="hl-func">print</span>(f<span class="hl-str">"Name: {columns[1]} | Role: {columns[2]} | Salary: Rs. {columns[3]}"</span>)</pre>
+                  <div class="code-output"><span class="label">Output:</span> Name: Himanshu | Role: DataEngineer | Salary: Rs. 95000</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <span class="real-world-tag"><i class="bi bi-folder2-open"></i> Ex 2: File Path / Tag Assembly (.join)</span>
+                <div class="example-box">
+                  <div class="example-header">
+                    <span class="example-badge">path_joiner.py</span>
+                    <button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-copy"></i> Copy</button>
+                  </div>
+                  <pre class="code-content">path_tokens = [<span class="hl-str">"data_lake"</span>, <span class="hl-str">"2026"</span>, <span class="hl-str">"september"</span>, <span class="hl-str">"sales.parquet"</span>]
+s3_path = <span class="hl-str">"/"</span>.<span class="hl-func">join</span>(path_tokens)
+
+<span class="hl-func">print</span>(f<span class="hl-str">"S3 URI: s3://my-company/{s3_path}"</span>)</pre>
+                  <div class="code-output"><span class="label">Output:</span> S3 URI: s3://my-company/data_lake/2026/september/sales.parquet</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Function 6: .startswith() & .endswith() -->
+        <div class="mb-4">
+          <div class="p-3 bg-light rounded-3 border">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+              <h6 class="fw-bold text-primary mb-0"><i class="bi bi-shield-lock-fill me-1"></i> 6. <code>.startswith()</code> & <code>.endswith()</code></h6>
+              <span class="badge bg-primary-subtle text-primary border border-primary-subtle">Prefix & Extension Check</span>
+            </div>
+            <p class="small text-secondary mb-2"><strong>Real Use:</strong> Data pipeline me valid file formats (.csv, .json) check karna aur secure URLs (`https://`) verify karna.</p>
+            
+            <div class="row g-2">
+              <div class="col-md-6">
+                <span class="real-world-tag"><i class="bi bi-file-earmark-check"></i> Ex 1: ETL Pipeline File Filter</span>
+                <div class="example-box">
+                  <div class="example-header">
+                    <span class="example-badge">file_filter.py</span>
+                    <button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-copy"></i> Copy</button>
+                  </div>
+                  <pre class="code-content">filename = <span class="hl-str">"customer_transactions_2026.csv"</span>
+
+<span class="hl-comment"># Check if file is valid CSV</span>
+<span class="hl-keyword">if</span> filename.<span class="hl-func">endswith</span>(<span class="hl-str">".csv"</span>):
+    <span class="hl-func">print</span>(f<span class="hl-str">"Ready for Pandas ETL Ingestion: {filename}"</span>)</pre>
+                  <div class="code-output"><span class="label">Output:</span> Ready for Pandas ETL Ingestion: customer_transactions_2026.csv</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <span class="real-world-tag"><i class="bi bi-globe"></i> Ex 2: Secure API Endpoint Check</span>
+                <div class="example-box">
+                  <div class="example-header">
+                    <span class="example-badge">api_security.py</span>
+                    <button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-copy"></i> Copy</button>
+                  </div>
+                  <pre class="code-content">api_url = <span class="hl-str">"https://api.github.com/users"</span>
+is_secure = api_url.<span class="hl-func">startswith</span>(<span class="hl-str">"https://"</span>)
+
+<span class="hl-func">print</span>(f<span class="hl-str">"API is HTTPS Secure: {is_secure}"</span>)</pre>
+                  <div class="code-output"><span class="label">Output:</span> API is HTTPS Secure: True</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Function 7: .find() & .count() -->
+        <div class="mb-4">
+          <div class="p-3 bg-light rounded-3 border">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+              <h6 class="fw-bold text-success mb-0"><i class="bi bi-search me-1"></i> 7. <code>.find()</code> & <code>.count()</code></h6>
+              <span class="badge bg-success-subtle text-success border border-success-subtle">Substring Search & Frequency</span>
+            </div>
+            <p class="small text-secondary mb-2"><strong>Real Use:</strong> Server logs me errors ka position nikalna aur keyword frequency calculate karna.</p>
+            
+            <div class="row g-2">
+              <div class="col-md-6">
+                <span class="real-world-tag"><i class="bi bi-bug"></i> Ex 1: Finding Error Position in Log</span>
+                <div class="example-box">
+                  <div class="example-header">
+                    <span class="example-badge">log_finder.py</span>
+                    <button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-copy"></i> Copy</button>
+                  </div>
+                  <pre class="code-content">log_line = <span class="hl-str">"2026-09-03 [CRITICAL_ERROR]: Database connection timeout"</span>
+err_pos = log_line.<span class="hl-func">find</span>(<span class="hl-str">"CRITICAL_ERROR"</span>)
+
+<span class="hl-func">print</span>(f<span class="hl-str">"Error starts at character index: {err_pos}"</span>)</pre>
+                  <div class="code-output"><span class="label">Output:</span> Error starts at character index: 12</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <span class="real-world-tag"><i class="bi bi-bar-chart"></i> Ex 2: Counting Error Keyword Frequency</span>
+                <div class="example-box">
+                  <div class="example-header">
+                    <span class="example-badge">error_counter.py</span>
+                    <button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-copy"></i> Copy</button>
+                  </div>
+                  <pre class="code-content">server_log = <span class="hl-str">"404 not found | 200 OK | 404 not found | 500 error | 404 not found"</span>
+error_count = server_log.<span class="hl-func">count</span>(<span class="hl-str">"404 not found"</span>)
+
+<span class="hl-func">print</span>(f<span class="hl-str">"Total 404 Incidents Today: {error_count}"</span>)</pre>
+                  <div class="code-output"><span class="label">Output:</span> Total 404 Incidents Today: 3</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Function 8: .isdigit(), .isalpha(), .isalnum() -->
+        <div class="mb-4">
+          <div class="p-3 bg-light rounded-3 border">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+              <h6 class="fw-bold text-teal mb-0"><i class="bi bi-check2-circle me-1"></i> 8. <code>.isdigit()</code>, <code>.isalpha()</code>, <code>.isalnum()</code></h6>
+              <span class="badge bg-teal-subtle text-teal border border-teal-subtle">Data Validation Checks</span>
+            </div>
+            <p class="small text-secondary mb-2"><strong>Real Use:</strong> Phone numbers, OTP codes, aur Vehicle/PAN cards ki validity check karna.</p>
+            
+            <div class="row g-2">
+              <div class="col-md-6">
+                <span class="real-world-tag"><i class="bi bi-phone"></i> Ex 1: 10-Digit Mobile Number Validation</span>
+                <div class="example-box">
+                  <div class="example-header">
+                    <span class="example-badge">phone_val.py</span>
+                    <button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-copy"></i> Copy</button>
+                  </div>
+                  <pre class="code-content">phone_input = <span class="hl-str">"9876543210"</span>
+is_valid_phone = phone_input.<span class="hl-func">isdigit</span>() <span class="hl-keyword">and</span> <span class="hl-func">len</span>(phone_input) == <span class="hl-num">10</span>
+
+<span class="hl-func">print</span>(f<span class="hl-str">"Is Valid Mobile Number: {is_valid_phone}"</span>)</pre>
+                  <div class="code-output"><span class="label">Output:</span> Is Valid Mobile Number: True</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <span class="real-world-tag"><i class="bi bi-credit-card-2-front"></i> Ex 2: PAN Card / Promo Code Format Check</span>
+                <div class="example-box">
+                  <div class="example-header">
+                    <span class="example-badge">code_val.py</span>
+                    <button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-copy"></i> Copy</button>
+                  </div>
+                  <pre class="code-content">promo_code = <span class="hl-str">"DISCOUNT2026"</span>
+is_valid_promo = promo_code.<span class="hl-func">isalnum</span>()  <span class="hl-comment"># Only letters & numbers</span>
+
+<span class="hl-func">print</span>(f<span class="hl-str">"Promo Code Clean: {is_valid_promo}"</span>)</pre>
+                  <div class="code-output"><span class="label">Output:</span> Promo Code Clean: True</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Function 9: .zfill() & .rjust() -->
+        <div class="mb-4">
+          <div class="p-3 bg-light rounded-3 border">
+            <div class="d-flex align-items-center justify-content-between mb-2">
+              <h6 class="fw-bold text-dark mb-0"><i class="bi bi-hash me-1"></i> 9. <code>.zfill(width)</code> & <code>.rjust()</code></h6>
+              <span class="badge bg-secondary-subtle text-secondary border border-secondary-subtle">Zero-Padding & Alignment</span>
+            </div>
+            <p class="small text-secondary mb-2"><strong>Real Use:</strong> Invoice numbers ko standard 6-digit zero padding dena (`000105`) aur CLI table align karna.</p>
+            
+            <div class="row g-2">
+              <div class="col-md-6">
+                <span class="real-world-tag"><i class="bi bi-receipt"></i> Ex 1: Automated Invoice ID Zero-Padding</span>
+                <div class="example-box">
+                  <div class="example-header">
+                    <span class="example-badge">invoice_id.py</span>
+                    <button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-copy"></i> Copy</button>
+                  </div>
+                  <pre class="code-content">order_sequence = <span class="hl-num">47</span>
+padded_invoice = <span class="hl-func">str</span>(order_sequence).<span class="hl-func">zfill</span>(<span class="hl-num">6</span>)   <span class="hl-comment"># '000047'</span>
+
+<span class="hl-func">print</span>(f<span class="hl-str">"Generated Invoice ID: INV-{padded_invoice}"</span>)</pre>
+                  <div class="code-output"><span class="label">Output:</span> Generated Invoice ID: INV-000047</div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <span class="real-world-tag"><i class="bi bi-table"></i> Ex 2: Fixed-Width Right Alignment for Reports</span>
+                <div class="example-box">
+                  <div class="example-header">
+                    <span class="example-badge">report_align.py</span>
+                    <button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-copy"></i> Copy</button>
+                  </div>
+                  <pre class="code-content">item1, price1 = <span class="hl-str">"Server Cost"</span>, <span class="hl-str">"12500"</span>
+item2, price2 = <span class="hl-str">"Domain"</span>, <span class="hl-str">"800"</span>
+
+<span class="hl-func">print</span>(f<span class="hl-str">"{item1:&lt;15}: Rs. {price1.rjust(7)}"</span>)
+<span class="hl-func">print</span>(f<span class="hl-str">"{item2:&lt;15}: Rs. {price2.rjust(7)}"</span>)</pre>
+                  <div class="code-output"><span class="label">Output:</span><br>Server Cost    : Rs.   12500<br>Domain         : Rs.     800</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= QUICK SUMMARY CHEAT SHEET TABLE ================= -->
+      <section id="topic-summary" class="note-section-card bg-light border">
         <div class="d-flex align-items-center gap-2 mb-3">
           <div class="icon-circle info"><i class="bi bi-table"></i></div>
-          <h4 class="fw-bold mb-0">Quick Summary Table</h4>
+          <h4 class="fw-bold mb-0">Python Core Cheat Sheet Table</h4>
         </div>
         <div class="table-responsive">
-          <table class="table table-bordered bg-white align-middle mb-0">
+          <table class="table table-bordered bg-white align-middle mb-0 shadow-sm">
             <thead class="table-dark">
               <tr>
                 <th>Topic</th>
@@ -1101,10 +1876,10 @@ new_salary = current_salary + increment_amount
             </thead>
             <tbody>
               <tr>
-                <td><strong>1. Variable</strong></td>
-                <td>Value store karne ka container</td>
-                <td><code>x = 10</code></td>
-                <td>Numbers se shuru nahi hota, case-sensitive</td>
+                <td><strong>1. Variable & id()</strong></td>
+                <td>Value store karne ka label + memory address</td>
+                <td><code>x = 10</code> | <code>id(x)</code></td>
+                <td>Numbers se shuru nahi hota, <code>id()</code> RAM address deta hai</td>
               </tr>
               <tr>
                 <td><strong>2. Data Types</strong></td>
@@ -1130,9 +1905,151 @@ new_salary = current_salary + increment_amount
                 <td><code>int()</code>, <code>float()</code></td>
                 <td>Decimal string ko pehle float fir int banayein</td>
               </tr>
+              <tr>
+                <td><strong>6. Functions</strong></td>
+                <td>Reusable modular code block</td>
+                <td><code>def my_func(a, b=5): return a+b</code></td>
+                <td><code>return</code> result wapas bhejta hai, <code>print()</code> sirf display karta hai</td>
+              </tr>
+              <tr>
+                <td><strong>7. Strings & Slicing</strong></td>
+                <td>Immutable text + Indexing & Slicing</td>
+                <td><code>s[start:stop:step]</code> | <code>.strip()</code></td>
+                <td>Direct change allow nahi (Immutable), <code>s[::-1]</code> reverse karta hai</td>
+              </tr>
             </tbody>
           </table>
         </div>
+      </section>
+
+    </div>
+  </div>
+</div>
+
+<!-- ================= PYTHON 3.11 LIVE PLAYGROUND MODAL ================= -->
+<div class="modal fade" id="pythonPlaygroundModal" tabindex="-1" aria-labelledby="pythonPlaygroundLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content border-0 shadow-lg" style="background: #090d16; color: #f8fafc; border-radius: 20px; overflow: hidden;">
+      
+      <!-- Modal Header -->
+      <div class="modal-header border-bottom border-dark px-4 py-3" style="background: #111827;">
+        <div class="d-flex align-items-center gap-2">
+          <div class="tip-icon-glow">
+            <i class="bi bi-terminal-fill"></i>
+          </div>
+          <div>
+            <h5 class="modal-title fw-bold text-white mb-0" id="pythonPlaygroundLabel">
+              Python 3.11 Live Playground <span class="badge bg-primary-subtle text-primary border border-primary-subtle ms-1 small">In-Browser WASM</span>
+            </h5>
+            <small class="text-secondary">Run real Python code directly inside your browser without installing anything!</small>
+          </div>
+        </div>
+        <div class="d-flex align-items-center gap-3">
+          <span id="py-status-badge" class="badge rounded-pill bg-warning-subtle text-warning-emphasis border border-warning px-3 py-1.5 font-monospace small">
+            <i class="bi bi-hourglass-split me-1"></i> Initializing Python...
+          </span>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body p-4" style="background: #090d16;">
+        
+        <!-- Controls Toolbar -->
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3 p-2.5 rounded-3" style="background: #131b2e; border: 1px solid #1f293d;">
+          
+          <div class="d-flex flex-wrap align-items-center gap-2">
+            <!-- Run Button -->
+            <button id="btn-run-code" class="btn btn-primary btn-sm px-3.5 py-1.5 rounded-pill fw-bold shadow d-inline-flex align-items-center gap-1.5" onclick="executePythonCode()">
+              <i class="bi bi-play-fill fs-5"></i> <span>Run Code</span> <small class="opacity-75 font-monospace">(Ctrl+Enter)</small>
+            </button>
+            
+            <!-- Quick Example Loader Dropdown -->
+            <div class="dropdown">
+              <button class="btn btn-sm btn-dark border border-secondary rounded-pill dropdown-toggle px-3" type="button" data-bs-toggle="dropdown">
+                <i class="bi bi-code-square me-1 text-info"></i> Load Quick Example
+              </button>
+              <ul class="dropdown-menu dropdown-menu-dark shadow">
+                <li><a class="dropdown-item small" href="javascript:void(0)" onclick="loadPlaygroundSnippet('variables')">1. Variables & id() Memory</a></li>
+                <li><a class="dropdown-item small" href="javascript:void(0)" onclick="loadPlaygroundSnippet('slicing')">2. String Slicing & Stepping</a></li>
+                <li><a class="dropdown-item small" href="javascript:void(0)" onclick="loadPlaygroundSnippet('string_methods')">3. String Cleaning (.strip, .split)</a></li>
+                <li><a class="dropdown-item small" href="javascript:void(0)" onclick="loadPlaygroundSnippet('functions')">4. Custom Functions & Return</a></li>
+                <li><a class="dropdown-item small" href="javascript:void(0)" onclick="loadPlaygroundSnippet('bill_calc')">5. Grocery Bill Calculation</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-center gap-2">
+            <button class="btn btn-sm btn-outline-secondary rounded-pill px-2.5" onclick="clearEditorCode()" title="Clear editor">
+              <i class="bi bi-trash3 me-1"></i> Clear Code
+            </button>
+            <button class="btn btn-sm btn-outline-secondary rounded-pill px-2.5" onclick="clearConsoleOutput()" title="Clear terminal">
+              <i class="bi bi-eraser me-1"></i> Clear Console
+            </button>
+          </div>
+        </div>
+
+        <!-- Editor & Terminal Split Grid -->
+        <div class="row g-3">
+          
+          <!-- Left: Code Editor -->
+          <div class="col-lg-6">
+            <div class="d-flex flex-column h-100 rounded-3 overflow-hidden" style="border: 1px solid #1f293d; background: #0b1120;">
+              <div class="px-3 py-2 d-flex align-items-center justify-content-between" style="background: #111827; border-bottom: 1px solid #1f2937;">
+                <div class="d-flex align-items-center gap-2">
+                  <div class="mac-dots">
+                    <span class="mac-dot red"></span>
+                    <span class="mac-dot yellow"></span>
+                    <span class="mac-dot green"></span>
+                  </div>
+                  <span class="small font-monospace text-secondary fw-semibold">main.py</span>
+                </div>
+                <small class="text-secondary font-monospace">Tab indent enabled</small>
+              </div>
+              <textarea id="python-code-editor" class="form-control border-0 p-3 flex-grow-1" rows="14" spellcheck="false" style="background: transparent; color: #f8fafc; font-family: 'JetBrains Mono', monospace; font-size: 0.88rem; line-height: 1.6; resize: vertical; outline: none; box-shadow: none;"># Welcome to Python 3.11 Playground!
+# Type or edit your code below and click 'Run Code'
+
+name = "Himanshu Sharma"
+target = "Data Engineer in 120 Days"
+daily_hours = 1.5
+
+print(f"Developer: {name}")
+print(f"Mission: {target}")
+print(f"Memory Address of name id(): {id(name)}")
+
+# String methods demonstration
+print(f"Clean Upper: {name.upper()}")
+print(f"Reversed String: {name[::-1]}")
+</textarea>
+            </div>
+          </div>
+
+          <!-- Right: Terminal Console Output -->
+          <div class="col-lg-6">
+            <div class="d-flex flex-column h-100 rounded-3 overflow-hidden" style="border: 1px solid #1f293d; background: #030712;">
+              <div class="px-3 py-2 d-flex align-items-center justify-content-between" style="background: #111827; border-bottom: 1px solid #1f2937;">
+                <div class="d-flex align-items-center gap-2">
+                  <i class="bi bi-terminal text-success"></i>
+                  <span class="small font-monospace text-success fw-bold">Terminal Output Console</span>
+                </div>
+                <span id="exec-time-pill" class="badge bg-dark border border-secondary font-monospace text-secondary small" style="display: none;">0.00s</span>
+              </div>
+              
+              <div id="terminal-console-box" class="p-3 font-monospace flex-grow-1 overflow-auto" style="min-height: 280px; max-height: 420px; font-size: 0.85rem; line-height: 1.6; color: #4ade80; white-space: pre-wrap;">
+<span class="text-secondary"># Output will be printed here after running code...</span>
+<span class="text-secondary"># Click 'Run Code' or press Ctrl + Enter</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="modal-footer border-top border-dark px-4 py-2.5 d-flex justify-content-between" style="background: #111827;">
+        <small class="text-secondary">💡 Pro Tip: Try defining functions, slicing strings, or checking <code>id()</code> memory addresses.</small>
+        <button type="button" class="btn btn-secondary btn-sm px-3 rounded-pill" data-bs-dismiss="modal">Close</button>
       </div>
 
     </div>
@@ -1148,7 +2065,10 @@ new_salary = current_salary + increment_amount
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.25.1/full/pyodide.js"></script>
+
 <script>
+// Copy Code helper
 function copyCode(btn) {
   const codeBox = btn.closest('.example-box').querySelector('.code-content');
   const text = codeBox.innerText;
@@ -1159,6 +2079,232 @@ function copyCode(btn) {
       btn.innerHTML = originalHtml;
     }, 2000);
   });
+}
+
+// Enable Tab indentation inside textarea
+const codeTextarea = document.getElementById('python-code-editor');
+if (codeTextarea) {
+  codeTextarea.addEventListener('keydown', function(e) {
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      const start = this.selectionStart;
+      const end = this.selectionEnd;
+      this.value = this.value.substring(0, start) + "    " + this.value.substring(end);
+      this.selectionStart = this.selectionEnd = start + 4;
+    } else if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+      e.preventDefault();
+      executePythonCode();
+    }
+  });
+}
+
+// Pyodide WASM Engine Loader
+let pyodideInstance = null;
+let isPyodideLoading = false;
+
+async function initPyodideEngine() {
+  if (pyodideInstance || isPyodideLoading) return;
+  isPyodideLoading = true;
+  const statusBadge = document.getElementById('py-status-badge');
+  
+  try {
+    if (statusBadge) {
+      statusBadge.className = 'badge rounded-pill bg-warning-subtle text-warning-emphasis border border-warning px-3 py-1.5 font-monospace small';
+      statusBadge.innerHTML = '<i class="bi bi-hourglass-split me-1"></i> Loading Python WASM...';
+    }
+    
+    pyodideInstance = await loadPyodide({
+      indexURL: "https://cdn.jsdelivr.net/pyodide/v0.25.1/full/"
+    });
+    
+    if (statusBadge) {
+      statusBadge.className = 'badge rounded-pill bg-success-subtle text-success-emphasis border border-success px-3 py-1.5 font-monospace small';
+      statusBadge.innerHTML = '<i class="bi bi-check-circle-fill me-1"></i> Python 3.11 Ready';
+    }
+  } catch (err) {
+    console.error("Pyodide Load Error:", err);
+    if (statusBadge) {
+      statusBadge.className = 'badge rounded-pill bg-danger-subtle text-danger border border-danger px-3 py-1.5 font-monospace small';
+      statusBadge.innerHTML = '<i class="bi bi-exclamation-triangle-fill me-1"></i> Load Failed (Offline)';
+    }
+  } finally {
+    isPyodideLoading = false;
+  }
+}
+
+// Trigger Pyodide initialization as soon as page loads or modal opens
+document.addEventListener('DOMContentLoaded', () => {
+  initPyodideEngine();
+});
+
+const modalEl = document.getElementById('pythonPlaygroundModal');
+if (modalEl) {
+  modalEl.addEventListener('show.bs.modal', () => {
+    initPyodideEngine();
+  });
+}
+
+// Execute Code Function
+async function executePythonCode() {
+  const consoleBox = document.getElementById('terminal-console-box');
+  const code = document.getElementById('python-code-editor').value;
+  const timePill = document.getElementById('exec-time-pill');
+  const runBtn = document.getElementById('btn-run-code');
+
+  if (!pyodideInstance) {
+    consoleBox.innerHTML = '<span class="text-warning"><i class="bi bi-hourglass-split me-1"></i> Python engine is still initializing... please wait a moment.</span>';
+    await initPyodideEngine();
+    if (!pyodideInstance) {
+      consoleBox.innerHTML = '<span class="text-danger"><i class="bi bi-x-circle-fill me-1"></i> Error: Could not initialize Python WASM engine. Please check internet connection.</span>';
+      return;
+    }
+  }
+
+  runBtn.disabled = true;
+  runBtn.innerHTML = '<i class="bi bi-hourglass-split me-1"></i> Running...';
+  consoleBox.innerHTML = '<span class="text-secondary"><i class="bi bi-play-circle me-1"></i> Executing script...</span>';
+
+  const startTime = performance.now();
+
+  try {
+    // Python wrapper to capture stdout & stderr cleanly
+    const wrapper = `
+import sys
+import io
+
+sys.stdout = io.StringIO()
+sys.stderr = io.StringIO()
+
+try:
+    exec(${JSON.stringify(code)})
+    _output = sys.stdout.getvalue()
+    _error = sys.stderr.getvalue()
+except Exception as e:
+    import traceback
+    _output = sys.stdout.getvalue()
+    _error = traceback.format_exc()
+`;
+    await pyodideInstance.runPythonAsync(wrapper);
+    
+    const output = pyodideInstance.globals.get('_output');
+    const error = pyodideInstance.globals.get('_error');
+    const elapsed = ((performance.now() - startTime) / 1000).toFixed(3);
+
+    if (timePill) {
+      timePill.style.display = 'inline-block';
+      timePill.textContent = `${elapsed}s`;
+    }
+
+    let finalHtml = '';
+    if (output) {
+      finalHtml += `<span class="text-success">${escapeHtml(output)}</span>`;
+    }
+    if (error) {
+      finalHtml += `<span class="text-danger">${escapeHtml(error)}</span>`;
+    }
+    if (!output && !error) {
+      finalHtml = '<span class="text-secondary"># Code executed successfully with no print output.</span>';
+    }
+
+    consoleBox.innerHTML = finalHtml;
+  } catch (err) {
+    consoleBox.innerHTML = `<span class="text-danger"><i class="bi bi-exclamation-triangle-fill me-1"></i> Runtime Execution Error:\n${escapeHtml(err.message)}</span>`;
+  } finally {
+    runBtn.disabled = false;
+    runBtn.innerHTML = '<i class="bi bi-play-fill fs-5"></i> <span>Run Code</span> <small class="opacity-75 font-monospace">(Ctrl+Enter)</small>';
+  }
+}
+
+function escapeHtml(str) {
+  return str.replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+}
+
+function clearEditorCode() {
+  document.getElementById('python-code-editor').value = '';
+  document.getElementById('python-code-editor').focus();
+}
+
+function clearConsoleOutput() {
+  document.getElementById('terminal-console-box').innerHTML = '<span class="text-secondary"># Terminal cleared.</span>';
+  const timePill = document.getElementById('exec-time-pill');
+  if (timePill) timePill.style.display = 'none';
+}
+
+// Preset Snippets
+const snippets = {
+  variables: `# 1. Variables and id() Memory Check
+emp_id = "DE_101"
+base_salary = 65000
+bonus = 7500
+total_payout = base_salary + bonus
+
+print(f"Employee ID: {emp_id}")
+print(f"Total Payout: Rs. {total_payout}")
+print(f"RAM Memory Location id(emp_id): {id(emp_id)}")
+`,
+  slicing: `# 2. String Slicing & Stepping
+sku = "DE-2026-LAPTOP99"
+
+prefix = sku[0:2]
+year = sku[3:7]
+item = sku[8:]
+reversed_sku = sku[::-1]
+
+print(f"Original SKU: {sku}")
+print(f"Category Prefix : {prefix}")
+print(f"Manufacture Year: {year}")
+print(f"Item Code       : {item}")
+print(f"Reversed Security: {reversed_sku}")
+`,
+  string_methods: `# 3. String Cleaning & Tokenizing (.strip, .replace, .split)
+dirty_record = "   ### HIMANSHU,DataEngineer,95000 ###   \\n"
+
+cleaned = dirty_record.replace("#", "").strip()
+tokens = cleaned.split(",")
+
+print(f"Cleaned Record : '{cleaned}'")
+print(f"Tokenized List : {tokens}")
+print(f"Standard Title : {tokens[0].title()}")
+`,
+  functions: `# 4. Functions with Parameters, Default Value & Return
+def calculate_salary(base_pay, allowance=5000, tax_rate=0.10):
+    gross = base_pay + allowance
+    tax = gross * tax_rate
+    net_salary = gross - tax
+    return net_salary
+
+emp1 = calculate_salary(50000)
+emp2 = calculate_salary(75000, allowance=8000, tax_rate=0.15)
+
+print(f"Employee 1 Net Pay: Rs. {emp1:.2f}")
+print(f"Employee 2 Net Pay: Rs. {emp2:.2f}")
+`,
+  bill_calc: `# 5. Grocery Shopping Bill with GST
+item_price = 450
+quantity = 3
+gst_rate = 0.18
+
+subtotal = item_price * quantity
+tax_amount = subtotal * gst_rate
+final_bill = subtotal + tax_amount
+is_vip = final_bill >= 1000
+
+print(f"Subtotal: Rs. {subtotal}")
+print(f"GST (18%): Rs. {tax_amount:.2f}")
+print(f"Final Payable: Rs. {final_bill:.2f}")
+print(f"Eligible for VIP Coupon: {is_vip}")
+`
+};
+
+function loadPlaygroundSnippet(key) {
+  if (snippets[key]) {
+    document.getElementById('python-code-editor').value = snippets[key];
+    executePythonCode();
+  }
 }
 </script>
 </body>
