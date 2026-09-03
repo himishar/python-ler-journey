@@ -7,7 +7,7 @@
 <title>Himanshu Sharma | 120-Day Data Engineering Journey</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #f8fafc;
@@ -38,32 +38,49 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   color: var(--text-main);
   background: 
     radial-gradient(circle at 8% 0%, rgba(79, 70, 229, 0.05), transparent 30%),
     radial-gradient(circle at 92% 10%, rgba(2, 132, 199, 0.05), transparent 30%),
     var(--bg);
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 /* Navbar */
 .navbar {
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--border);
   transition: all 0.2s ease;
+  z-index: 1030;
 }
 
 .brand {
   font-weight: 800;
-  font-size: 1.25rem;
+  font-size: 1.18rem;
   color: var(--text-main) !important;
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 10px;
   text-decoration: none;
+  white-space: nowrap;
+}
+
+.brand-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--indigo), var(--blue));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
+  flex-shrink: 0;
 }
 
 .brand span {
@@ -73,10 +90,11 @@ body {
 .nav-link {
   font-weight: 600;
   color: var(--text-muted) !important;
-  padding: 0.5rem 1rem !important;
+  padding: 0.45rem 0.8rem !important;
   border-radius: 8px;
   transition: all 0.2s ease;
-  font-size: 0.92rem;
+  font-size: 0.88rem;
+  white-space: nowrap;
 }
 
 .nav-link:hover {
@@ -87,6 +105,62 @@ body {
 .navbar-toggler {
   border: 1px solid var(--border);
   padding: 6px 10px;
+  border-radius: 10px;
+  background: var(--surface-alt);
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+  border-color: var(--indigo);
+}
+
+/* Nav Action Buttons */
+.nav-btn-notes {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+  font-weight: 700;
+  font-size: 0.86rem;
+  padding: 6px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  background: var(--indigo-light);
+  color: var(--indigo) !important;
+  border: 1px solid #c7d2fe;
+  transition: all 0.2s ease;
+}
+
+.nav-btn-notes:hover {
+  background: #e0e7ff;
+  color: #3730a3 !important;
+  transform: translateY(-1px);
+}
+
+.nav-btn-runner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+  font-weight: 700;
+  font-size: 0.86rem;
+  padding: 6px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  background: linear-gradient(135deg, #4f46e5, #0284c7);
+  color: #ffffff !important;
+  border: none;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.28);
+  transition: all 0.2s ease;
+}
+
+.nav-btn-runner:hover {
+  background: linear-gradient(135deg, #4338ca, #0369a1);
+  color: #ffffff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.38);
 }
 
 /* Cards & Containers */
@@ -99,33 +173,35 @@ body {
 }
 
 .hero {
-  padding: 42px 0 24px;
+  padding: 32px 0 20px;
 }
 
 .hero-card {
-  padding: 34px;
+  padding: 30px;
   border-color: #cbd5e1;
 }
 
 .avatar {
-  width: 95px;
-  height: 95px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  font-size: 1.85rem;
   font-weight: 800;
   color: #ffffff;
   background: linear-gradient(135deg, var(--indigo), var(--blue));
   box-shadow: 0 10px 25px rgba(79, 70, 229, 0.28);
+  flex-shrink: 0;
 }
 
 .hero h1 {
-  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-size: clamp(1.8rem, 4vw, 2.75rem);
   font-weight: 800;
-  letter-spacing: -1px;
+  letter-spacing: -0.5px;
   color: var(--text-main);
+  line-height: 1.2;
 }
 
 .gradient {
@@ -142,8 +218,8 @@ body {
 .stat {
   background: #ffffff;
   border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 18px;
+  border-radius: 14px;
+  padding: 16px;
   height: 100%;
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -155,22 +231,23 @@ body {
 }
 
 .stat-label {
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-size: 0.76rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   color: var(--text-muted);
 }
 
 .stat-num {
-  font-size: 1.4rem;
+  font-size: 1.28rem;
   font-weight: 800;
   color: var(--text-main);
   margin-top: 4px;
+  white-space: nowrap;
 }
 
 .progress {
-  height: 9px;
+  height: 8px;
   background: #e2e8f0;
   border-radius: 999px;
   overflow: hidden;
@@ -183,11 +260,11 @@ body {
 
 /* Section Common */
 .section {
-  padding: 24px 0;
+  padding: 20px 0;
 }
 
 .title {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 800;
   color: var(--text-main);
   display: flex;
@@ -197,12 +274,12 @@ body {
 
 .subtitle {
   color: var(--text-muted);
-  margin-bottom: 22px;
-  font-size: 0.98rem;
+  margin-bottom: 20px;
+  font-size: 0.95rem;
 }
 
 .panel {
-  padding: 28px;
+  padding: 26px;
 }
 
 /* 120-Day Phase Pillar Cards */
@@ -210,7 +287,7 @@ body {
   background: #ffffff;
   border: 1px solid var(--border);
   border-radius: 16px;
-  padding: 22px;
+  padding: 20px;
   height: 100%;
   position: relative;
   transition: all 0.25s ease;
@@ -241,31 +318,43 @@ body {
   background: #ffffff;
   border: 1px solid var(--border);
   border-radius: 16px;
-  padding: 18px 24px;
+  padding: 18px 20px;
+}
+
+.pipeline-scroll-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 6px 2px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .pipeline-step {
   display: inline-flex;
   align-items: center;
-  font-size: 0.88rem;
+  font-size: 0.84rem;
   font-weight: 700;
   padding: 7px 14px;
   border-radius: 10px;
   background: #f8fafc;
   border: 1px solid var(--border);
   color: var(--text-main);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .pipeline-arrow {
   color: var(--indigo);
   font-weight: 800;
-  margin: 0 8px;
+  margin: 0 4px;
+  flex-shrink: 0;
 }
 
 /* 17 Python Roadmap Item Styles */
 .roadmap-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
   gap: 14px;
 }
 
@@ -296,25 +385,26 @@ body {
 .roadmap-card h6 {
   font-weight: 700;
   margin-bottom: 4px;
-  font-size: 0.95rem;
+  font-size: 0.94rem;
 }
 
 .roadmap-card p {
   font-size: 0.82rem;
   color: var(--text-muted);
   margin: 0;
-  line-height: 1.4;
+  line-height: 1.45;
 }
 
 /* Badges */
 .badge-pill {
   border-radius: 30px;
-  padding: 5px 12px;
-  font-size: 0.74rem;
+  padding: 4px 10px;
+  font-size: 0.72rem;
   font-weight: 700;
   display: inline-flex;
   align-items: center;
   gap: 4px;
+  white-space: nowrap;
 }
 
 .badge-done {
@@ -337,8 +427,8 @@ body {
 
 /* Daily Log Cards */
 .day-card {
-  padding: 26px;
-  margin-bottom: 22px;
+  padding: 24px;
+  margin-bottom: 20px;
 }
 
 .day-card.completed-card {
@@ -347,14 +437,14 @@ body {
 }
 
 .day-icon {
-  width: 60px;
-  height: 60px;
-  border-radius: 16px;
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 800;
-  font-size: 1.3rem;
+  font-size: 1.25rem;
   color: #ffffff;
   background: linear-gradient(135deg, var(--green), #059669);
   flex-shrink: 0;
@@ -367,14 +457,15 @@ body {
 }
 
 .day-title {
-  font-size: 1.3rem;
+  font-size: 1.22rem;
   font-weight: 800;
   color: var(--text-main);
+  line-height: 1.3;
 }
 
 /* Topic Boxes */
 .topic {
-  padding: 18px;
+  padding: 16px;
   border: 1px solid var(--border);
   border-radius: 14px;
   background: #f8fafc;
@@ -384,19 +475,20 @@ body {
 .topic h6 {
   font-weight: 700;
   color: var(--text-main);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
+  font-size: 0.94rem;
 }
 
 .topic ul {
-  padding-left: 20px;
+  padding-left: 18px;
   margin: 0;
   color: #334155;
 }
 
 .topic li {
-  margin: 7px 0;
-  line-height: 1.5;
-  font-size: 0.92rem;
+  margin: 6px 0;
+  line-height: 1.45;
+  font-size: 0.88rem;
 }
 
 .check {
@@ -407,7 +499,7 @@ body {
 .callout {
   border-left: 4px solid var(--teal);
   background: #f0fdfa;
-  padding: 18px 20px;
+  padding: 16px 18px;
   border-radius: 10px;
   border-top: 1px solid #ccfbf1;
   border-right: 1px solid #ccfbf1;
@@ -421,7 +513,8 @@ body {
 
 .callout p {
   color: #334155;
-  font-size: 0.94rem;
+  font-size: 0.9rem;
+  line-height: 1.5;
 }
 
 /* Strategy & Rules Box */
@@ -429,7 +522,7 @@ body {
   background: #ffffff;
   border: 1px solid var(--border);
   border-radius: 14px;
-  padding: 20px;
+  padding: 18px;
   height: 100%;
 }
 
@@ -445,31 +538,67 @@ body {
   display: flex;
   gap: 10px;
   margin-bottom: 10px;
-  font-size: 0.92rem;
+  font-size: 0.9rem;
 }
 
 /* Footer */
 footer {
-  padding: 40px 0 30px;
+  padding: 35px 0 25px;
   text-align: center;
   color: var(--text-muted);
   border-top: 1px solid var(--border);
   background: #ffffff;
+  margin-top: 20px;
 }
 
-@media (max-width: 768px) {
-  .hero { padding-top: 24px; }
-  .hero-card, .panel, .day-card { padding: 20px; }
-  .avatar { width: 75px; height: 75px; font-size: 1.5rem; }
-  .hero h1 { font-size: 1.9rem; }
-  .day-title { font-size: 1.15rem; }
+/* Mobile Responsive Optimizations */
+@media (max-width: 1199.98px) {
   .navbar-collapse {
     background: #ffffff;
     padding: 16px;
-    border-radius: 12px;
+    border-radius: 16px;
     margin-top: 12px;
     border: 1px solid var(--border);
-    box-shadow: var(--card-shadow);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
+  }
+  .navbar-nav .nav-link {
+    padding: 10px 14px !important;
+    border-radius: 10px;
+  }
+  .nav-action-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+  }
+  .nav-action-group .nav-btn-notes,
+  .nav-action-group .nav-btn-runner {
+    width: 100%;
+    padding: 9px 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero { padding-top: 18px; padding-bottom: 14px; }
+  .hero-card, .panel, .day-card { padding: 18px 16px; border-radius: 16px; }
+  .avatar { width: 70px; height: 70px; font-size: 1.45rem; }
+  .hero h1 { font-size: 1.65rem; }
+  .title { font-size: 1.3rem; }
+  .subtitle { font-size: 0.88rem; margin-bottom: 16px; }
+  .stat { padding: 12px 10px; }
+  .stat-label { font-size: 0.7rem; }
+  .stat-num { font-size: 1.15rem; }
+  .day-icon { width: 44px; height: 44px; font-size: 1.1rem; border-radius: 12px; }
+  .day-title { font-size: 1.1rem; }
+}
+
+@media (max-width: 576px) {
+  .day-header-wrap {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 10px;
   }
 }
 </style>
@@ -477,32 +606,41 @@ footer {
 <body>
 
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg sticky-top">
+<nav class="navbar navbar-expand-xl sticky-top">
   <div class="container py-1">
     <a class="navbar-brand brand" href="index.html">
-      <div style="width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, #4f46e5, #0284c7); display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 1.1rem; box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);">
+      <div class="brand-icon-box">
         <i class="bi bi-database-fill-gear"></i>
       </div>
-      <div>Data <span class="text-primary">Engineer 120</span></div>
+      <div>Data <span>Engineer 120</span></div>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-label="Toggle navigation">
       <i class="bi bi-list fs-5"></i>
     </button>
     <div class="collapse navbar-collapse" id="nav">
-      <ul class="navbar-nav ms-auto gap-lg-2 align-items-lg-center">
-        <li><a class="nav-link" href="#overview">Overview</a></li>
-        <li><a class="nav-link" href="#daily-completed">Completed Days</a></li>
-        <li><a class="nav-link" href="#strategy">1-Hour Method</a></li>
-        <li><a class="nav-link" href="#roadmap120">120-Day Roadmap</a></li>
-        <li><a class="nav-link" href="#python-plan">Python 30-Day Details</a></li>
-        <li>
-          <a class="nav-link text-primary fw-bold bg-primary-subtle rounded-pill px-3 py-1 border border-primary-subtle" href="notes.html">
-            <i class="bi bi-journal-code me-1"></i> Notes 📝
+      <ul class="navbar-nav ms-auto gap-xl-1 align-items-xl-center">
+        <li><a class="nav-link" href="#overview"><i class="bi bi-speedometer2 d-xl-none me-2 text-primary"></i>Overview</a></li>
+        <li><a class="nav-link" href="#daily-completed"><i class="bi bi-check2-circle d-xl-none me-2 text-success"></i>Completed Days</a></li>
+        <li><a class="nav-link" href="#strategy"><i class="bi bi-lightning-charge d-xl-none me-2 text-warning"></i>1-Hour Method</a></li>
+        <li><a class="nav-link" href="#roadmap120"><i class="bi bi-map d-xl-none me-2 text-info"></i>Roadmap</a></li>
+        <li><a class="nav-link" href="#python-plan"><i class="bi bi-file-earmark-code d-xl-none me-2 text-primary"></i>Python Plan</a></li>
+        <li class="d-none d-xl-block ms-1">
+          <a class="nav-btn-notes" href="notes.html">
+            <i class="bi bi-journal-code"></i> <span>Notes 📝</span>
           </a>
         </li>
-        <li>
-          <a class="btn btn-sm btn-primary rounded-pill px-3 py-1.5 fw-bold shadow-sm d-inline-flex align-items-center gap-1.5" href="notes.html">
+        <li class="d-none d-xl-block ms-1">
+          <a class="nav-btn-runner" href="notes.html">
             <i class="bi bi-play-circle-fill text-warning"></i> <span>Python Runner ⚡</span>
+          </a>
+        </li>
+        <!-- Mobile Action Buttons -->
+        <li class="d-xl-none nav-action-group">
+          <a class="nav-btn-notes" href="notes.html">
+            <i class="bi bi-journal-code"></i> <span>Revision Notes & Code Library 📝</span>
+          </a>
+          <a class="nav-btn-runner" href="notes.html">
+            <i class="bi bi-play-circle-fill text-warning"></i> <span>Run Python In Browser ⚡</span>
           </a>
         </li>
       </ul>
@@ -514,7 +652,7 @@ footer {
 <section class="hero" id="overview">
   <div class="container">
     <div class="hero-card">
-      <div class="row align-items-center g-4">
+      <div class="row align-items-center g-3 g-md-4">
         <div class="col-md-auto text-center text-md-start">
           <div class="avatar mx-auto">HS</div>
         </div>
@@ -539,30 +677,30 @@ footer {
         <div class="col-6 col-lg-3">
           <div class="stat">
             <div class="stat-label">120-Day Target</div>
-            <div class="stat-num">Day 2 / 120</div>
-            <div class="progress mt-2"><div class="progress-bar" style="width:1.67%"></div></div>
-            <small class="muted mt-1 d-inline-block">1.67% of 120 Days</small>
+            <div class="stat-num">Day 3 / 120</div>
+            <div class="progress mt-2"><div class="progress-bar" style="width:2.5%"></div></div>
+            <small class="muted mt-1 d-inline-block">2.5% of 120 Days</small>
           </div>
         </div>
         <div class="col-6 col-lg-3">
           <div class="stat">
             <div class="stat-label">Current Phase</div>
             <div class="stat-num text-primary">Phase 1 (Python)</div>
-            <small class="text-success fw-semibold">Day 2 completed ✅</small>
+            <small class="text-success fw-semibold">Day 3 completed ✅</small>
           </div>
         </div>
         <div class="col-6 col-lg-3">
           <div class="stat">
             <div class="stat-label">Total Time Logged</div>
-            <div class="stat-num">4.5+ Hours</div>
-            <small class="muted">Day 0, Day 1 & Day 2</small>
+            <div class="stat-num">6.5+ Hours</div>
+            <small class="muted">Day 0, Day 1, Day 2 & Day 3</small>
           </div>
         </div>
         <div class="col-6 col-lg-3">
           <div class="stat">
             <div class="stat-label">Consistency Streak</div>
-            <div class="stat-num">3 Days 🔥</div>
-            <small class="text-success fw-semibold">Day 0, Day 1 & Day 2 done</small>
+            <div class="stat-num">4 Days 🔥</div>
+            <small class="text-success fw-semibold">Day 0, Day 1, Day 2 & Day 3 done</small>
           </div>
         </div>
       </div>
@@ -576,10 +714,65 @@ footer {
     <div class="d-flex flex-wrap align-items-center justify-content-between mb-2">
       <div class="title"><i class="bi bi-check2-circle text-success"></i> Completed Learning Logs</div>
       <span class="badge bg-success-subtle text-success-emphasis border border-success-subtle px-3 py-1.5 rounded-pill fw-bold">
-        Showing Only Completed Days (3 Done)
+        Showing Only Completed Days (4 Done)
       </span>
     </div>
     <p class="subtitle">Only the days and topics that have actually been studied and executed so far.</p>
+
+    <!-- Day 3 Completed -->
+    <div class="day-card completed-card">
+      <div class="d-flex gap-3 align-items-start">
+        <div class="day-icon">03</div>
+        <div class="flex-grow-1">
+          <div class="d-flex flex-wrap gap-2 align-items-center justify-content-between">
+            <div>
+              <h3 class="day-title mb-0">Day 3 — Python Strings (Slicing, Methods & Data Cleaning)</h3>
+              <div class="small text-muted mt-1"><i class="bi bi-calendar-check me-1"></i> Completed on 3 September 2026</div>
+            </div>
+            <span class="badge-pill badge-done"><i class="bi bi-check-lg"></i> COMPLETED</span>
+          </div>
+          <p class="muted mt-2 mb-2">Mastered complete string operations: indexing, negative slicing & stepping, immutability, built-in string methods (split, join, strip, replace), formatting with f-strings, and real-world ETL text sanitation.</p>
+          <a href="notes.html#topic-strings" class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1">
+            <i class="bi bi-journal-text me-1"></i> View Day 3 Strings Revision Notes (Slicing, Methods, Cleaning...)
+          </a>
+        </div>
+      </div>
+
+      <div class="row g-3 mt-3">
+        <div class="col-md-6">
+          <div class="topic">
+            <h6><i class="bi bi-check-circle-fill check me-1"></i> Topics Covered & Understood</h6>
+            <ul>
+              <li><strong>String Fundamentals & Immutability:</strong> Strings as ordered sequences, zero-based indexing, why strings cannot be modified in-place</li>
+              <li><strong>Slicing & Stepping:</strong> Positive/negative indices, range slicing <code>[start:stop:step]</code>, and string reversal <code>[::-1]</code></li>
+              <li><strong>Trimming & Sanitization:</strong> <code>strip()</code>, <code>lstrip()</code>, <code>rstrip()</code> to clean unwanted whitespaces, tabs, and newline characters</li>
+              <li><strong>Case & Format Adjustments:</strong> <code>lower()</code>, <code>upper()</code>, <code>title()</code>, <code>capitalize()</code> for uniform data pipelines</li>
+              <li><strong>Search & Verification:</strong> <code>find()</code>, <code>count()</code>, <code>startswith()</code>, <code>endswith()</code>, and the <code>in</code> keyword</li>
+              <li><strong>Splitting & Joining:</strong> <code>split()</code> (delimiter to list), <code>rsplit()</code>, and <code>"".join()</code> (list to clean string)</li>
+              <li><strong>Replacement & f-Strings:</strong> <code>replace()</code> for masking/standardizing, plus modern expressions via <code>f"{var}"</code></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="topic">
+            <h6>⏱️ Practice & Execution Log</h6>
+            <ul>
+              <li><strong>Study Time:</strong> 2.0 Hours dedicated</li>
+              <li><strong>Hands-On Coding:</strong> Wrote custom data sanitizers (cleaning messy user emails, stripping special characters, formatting phone numbers)</li>
+              <li><strong>Practice Exercises:</strong> Solved slicing puzzles, URL parameter extractors, and CSV text parsers without copying</li>
+              <li><strong>Pipeline Relevance:</strong> Text cleaning & normalization is step #1 in any ETL / Data Ingestion pipeline</li>
+              <li><strong>Status:</strong> Successfully completed Day 3 checklist ✅</li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="callout">
+            <strong>🧠 Day 3 Key Takeaways</strong>
+            <p class="mb-0 mt-1">Raw incoming data from APIs, web scraping, and log files is almost always messy, unformatted text. Mastering string methods like <code>strip()</code>, <code>replace()</code>, <code>split()</code>, and <code>join()</code> allows converting unstructured strings into clean, validated, and standard records for downstream database storage.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Day 2 Completed -->
     <div class="day-card completed-card">
@@ -805,7 +998,7 @@ footer {
         <div class="col-12">
           <div class="pipeline-track text-center">
             <div class="small fw-bold text-uppercase text-muted mb-2">Final Data Engineering Architecture Flow</div>
-            <div class="d-flex flex-wrap justify-content-center align-items-center gap-1">
+            <div class="pipeline-scroll-box justify-content-start justify-content-lg-center">
               <span class="pipeline-step"><i class="bi bi-filetype-py text-primary me-1"></i> Python</span>
               <span class="pipeline-arrow">→</span>
               <span class="pipeline-step">Data Extraction</span>
@@ -822,6 +1015,7 @@ footer {
               <span class="pipeline-arrow">→</span>
               <span class="pipeline-step bg-dark text-white">🚀 Data Engineer</span>
             </div>
+            <div class="small text-muted d-lg-none mt-2"><i class="bi bi-arrow-left-right me-1"></i> Scroll horizontally to view full pipeline</div>
           </div>
         </div>
 
@@ -956,10 +1150,10 @@ footer {
         </div>
 
         <!-- Phase 6 -->
-        <div class="roadmap-card">
+        <div class="roadmap-card completed">
           <div class="d-flex justify-content-between align-items-start mb-1">
-            <span class="badge bg-primary text-white rounded-pill px-2 py-0.5 small">Day 11–12</span>
-            <a href="notes.html#topic-strings" class="badge bg-primary-subtle text-primary border border-primary-subtle text-decoration-none">Notes Ready 📝</a>
+            <span class="badge bg-success text-white rounded-pill px-2 py-0.5 small">Day 3</span>
+            <span class="badge-pill badge-done">Completed ✅</span>
           </div>
           <h6>6. Strings & Text Cleaning</h6>
           <p>Slicing, stepping, split(), join(), strip(), replace(), f-strings & practical data cleaning (emails, URLs, SKU codes).</p>
