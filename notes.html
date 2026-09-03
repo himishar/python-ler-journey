@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Himanshu Sharma - Python Core Study Notes: Variables, Operators, Datatypes, User Input & Typecasting with Real-Life Examples">
+<title>Python Study Notes | Himanshu Sharma</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-alt: #f1f5f9;
+  --border: #e2e8f0;
+  --border-focus: #cbd5e1;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --indigo: #4f46e5;
+  --indigo-light: #eef2ff;
+  --blue: #0284c7;
+  --blue-light: #e0f2fe;
+  --teal: #0d9488;
+  --teal-light: #ccfbf1;
+  --green: #16a34a;
+  --green-light: #dcfce7;
+  --amber: #d97706;
+  --amber-light: #fef3c7;
+  --rose: #e11d48;
+  --rose-light: #ffe4e6;
+  --card-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+  --card-shadow-hover: 0 12px 28px -4px rgba(15, 23, 42, 0.08), 0 4px 10px -2px rgba(15, 23, 42, 0.04);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: var(--text-main);
+  background: 
+    radial-gradient(circle at 10% 0%, rgba(79, 70, 229, 0.04), transparent 25%),
+    radial-gradient(circle at 90% 10%, rgba(2, 132, 199, 0.04), transparent 25%),
+    var(--bg);
+  min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  transition: all 0.2s ease;
+}
+
+.brand {
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--text-main) !important;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.brand-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #4f46e5, #0284c7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
+}
+
+.brand span {
+  color: var(--indigo);
+}
+
+.nav-link {
+  font-weight: 600;
+  color: var(--text-muted) !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.nav-link:hover {
+  color: var(--indigo) !important;
+  background: var(--indigo-light);
+}
+
+.nav-link.active-tab {
+  color: var(--indigo) !important;
+  background: var(--indigo-light);
+  border: 1px solid #c7d2fe;
+}
+
+/* Hero Header */
+.notes-hero {
+  padding: 34px 0 20px;
+}
+
+.hero-badge {
+  background: #ffffff;
+  color: var(--indigo);
+  border: 1px solid #c7d2fe;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 6px 14px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.08);
+}
+
+/* Sidebar Quick Nav */
+.sidebar-nav {
+  position: sticky;
+  top: 90px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: var(--card-shadow);
+}
+
+.sidebar-title {
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.topic-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  margin-bottom: 6px;
+  border-radius: 10px;
+  color: var(--text-main);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.88rem;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.topic-link:hover {
+  background: var(--indigo-light);
+  color: var(--indigo);
+  border-color: #c7d2fe;
+  transform: translateX(4px);
+}
+
+.topic-link .badge-count {
+  font-size: 0.72rem;
+  background: var(--surface-alt);
+  color: var(--text-muted);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+/* Topic Note Card */
+.note-section-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 28px;
+  margin-bottom: 28px;
+  box-shadow: var(--card-shadow);
+  transition: all 0.25s ease;
+  scroll-margin-top: 90px;
+}
+
+.note-section-card:hover {
+  box-shadow: var(--card-shadow-hover);
+  border-color: #cbd5e1;
+}
+
+.topic-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.topic-num-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(135deg, var(--indigo), var(--blue));
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.28);
+}
+
+.topic-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin: 0;
+  color: var(--text-main);
+}
+
+/* Key definition box */
+.key-summary-box {
+  background: #f8fafc;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--indigo);
+  border-radius: 12px;
+  padding: 16px 18px;
+  margin-bottom: 20px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+/* Rules Grid */
+.rules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.rule-pill-item {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 0.87rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.02);
+}
+
+.rule-pill-item .icon-circle {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.icon-circle.success { background: #dcfce7; color: #16a34a; }
+.icon-circle.danger { background: #fee2e2; color: #ef4444; }
+.icon-circle.info { background: #e0f2fe; color: #0284c7; }
+
+/* Real-world tag */
+.real-world-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #0f766e;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  padding: 6px 14px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+/* Code Example Boxes (macOS Terminal Style) */
+.example-box {
+  background: #090d16;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-top: 6px;
+  border: 1px solid #1e293b;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.example-header {
+  background: #111827;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #1f2937;
+}
+
+.mac-dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.mac-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.mac-dot.red { background: #ef4444; }
+.mac-dot.yellow { background: #f59e0b; }
+.mac-dot.green { background: #10b981; }
+
+.example-badge {
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: #38bdf8;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.copy-btn {
+  background: #1f2937;
+  border: 1px solid #374151;
+  color: #cbd5e1;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.copy-btn:hover {
+  background: #374151;
+  color: #ffffff;
+  border-color: #4b5563;
+}
+
+.code-content {
+  margin: 0;
+  padding: 16px 18px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: #f8fafc;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.code-output {
+  background: #030712;
+  border-top: 1px solid #1f2937;
+  padding: 12px 18px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  color: #4ade80;
+  line-height: 1.5;
+}
+
+.code-output span.label {
+  color: #94a3b8;
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+/* Syntax Highlighting */
+.hl-comment { color: #64748b; font-style: italic; }
+.hl-keyword { color: #c084fc; font-weight: 700; }
+.hl-func { color: #60a5fa; }
+.hl-str { color: #4ade80; }
+.hl-num { color: #fb923c; }
+.hl-op { color: #f472b6; }
+
+/* ================= MODERN TRAP & ERROR CARD DESIGN ================= */
+.gotcha-box {
+  background: #ffffff;
+  border: 1px solid #fecaca;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.06);
+  margin-top: 16px;
+}
+
+.gotcha-header {
+  background: linear-gradient(135deg, #fef2f2, #fee2e2);
+  border-bottom: 1px solid #fecaca;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.gotcha-header-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: #ef4444;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.gotcha-header-title {
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: #991b1b;
+  margin: 0;
+}
+
+.gotcha-grid {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.gotcha-card {
+  background: #fafafa;
+  border: 1px solid #f1f5f9;
+  border-radius: 12px;
+  padding: 14px 16px;
+  transition: all 0.2s ease;
+}
+
+.gotcha-card:hover {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+}
+
+.gotcha-badge-err {
+  background: #fee2e2;
+  color: #dc2626;
+  border: 1px solid #fca5a5;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.gotcha-badge-fix {
+  background: #dcfce7;
+  color: #15803d;
+  border: 1px solid #86efac;
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.inline-code-err {
+  font-family: 'JetBrains Mono', monospace;
+  background: #fee2e2;
+  color: #991b1b;
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.inline-code-fix {
+  font-family: 'JetBrains Mono', monospace;
+  background: #dcfce7;
+  color: #166534;
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+/* Float Conversion Card */
+.info-highlight-card {
+  background: #f0fdfa;
+  border: 1px solid #99f6e4;
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-top: 14px;
+}
+
+/* Footer */
+footer {
+  padding: 35px 0 25px;
+  text-align: center;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border);
+  background: #ffffff;
+  margin-top: 40px;
+}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg sticky-top">
+  <div class="container py-1">
+    <a class="navbar-brand brand" href="index.html">
+      <div class="brand-icon-box">
+        <i class="bi bi-terminal-fill"></i>
+      </div>
+      <div>Data <span>Engineer 120</span></div>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-label="Toggle navigation">
+      <i class="bi bi-list fs-5"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto gap-lg-2 align-items-lg-center">
+        <li><a class="nav-link" href="index.html#overview"><i class="bi bi-arrow-left me-1"></i> Main Roadmap</a></li>
+        <li><a class="nav-link" href="index.html#daily-completed"><i class="bi bi-calendar-check me-1"></i> Completed Days</a></li>
+        <li>
+          <a class="nav-link active-tab fw-bold" href="notes.html">
+            <i class="bi bi-journal-code text-primary me-1"></i> Study Notes 📝
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="notes-hero">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-between gap-3">
+      <div>
+        <div class="hero-badge mb-2">
+          <i class="bi bi-patch-check-fill text-primary"></i> Python Core Quick Revision Notes
+        </div>
+        <h1 class="fw-bold mb-1">Python Basics & Core Concepts 🚀</h1>
+        <p class="text-muted mb-0">Clean explanations with <strong>2 Real-World Practical Examples</strong> each in exact logical sequence.</p>
+      </div>
+      <div>
+        <a href="index.html" class="btn btn-outline-secondary btn-sm px-3 rounded-pill">
+          <i class="bi bi-house-door me-1"></i> Back to Dashboard
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Main Notes Section -->
+<div class="container py-3">
+  <div class="row g-4">
+    
+    <!-- Sidebar Navigation -->
+    <div class="col-lg-3 d-none d-lg-block">
+      <div class="sidebar-nav">
+        <div class="sidebar-title">Topics in Sequence</div>
+        <a href="#topic-variables" class="topic-link">
+          <span>1. Variables</span>
+          <span class="badge-count">2 Ex</span>
+        </a>
+        <a href="#topic-datatypes" class="topic-link">
+          <span>2. Data Types</span>
+          <span class="badge-count">2 Ex</span>
+        </a>
+        <a href="#topic-operators" class="topic-link">
+          <span>3. Operators</span>
+          <span class="badge-count">2 Ex</span>
+        </a>
+        <a href="#topic-userinput" class="topic-link">
+          <span>4. User Input</span>
+          <span class="badge-count">2 Ex</span>
+        </a>
+        <a href="#topic-typecasting" class="topic-link">
+          <span>5. Type Casting</span>
+          <span class="badge-count">2 Ex</span>
+        </a>
+        <hr class="my-3 text-muted">
+        <div class="p-2.5 rounded bg-primary-subtle border border-primary-subtle">
+          <small class="text-primary fw-bold d-block"><i class="bi bi-lightbulb-fill me-1"></i> Quick Tip:</small>
+          <small class="text-secondary">Copy button use karke kisi bhi example ko VS Code me test kar sakte hain.</small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content Column -->
+    <div class="col-lg-9">
+
+      <!-- ================= 1. VARIABLES ================= -->
+      <section id="topic-variables" class="note-section-card">
+        <div class="topic-header">
+          <div class="topic-num-icon">01</div>
+          <div>
+            <h2 class="topic-title">1. Python Variables (वैरिएबल्स)</h2>
+            <small class="text-muted">Named memory container used to store values.</small>
+          </div>
+        </div>
+
+        <div class="key-summary-box">
+          <strong>💡 Definition:</strong> Variable ek <em>storage box</em> ki tarah hota hai jisme hum value (number, text, etc.) store karte hain taaki aage code me reuse kar sakein. Python dynamically typed language hai, isliye datatype declare nahi karna padta.
+        </div>
+
+        <h6 class="fw-bold mb-2.5 text-dark"><i class="bi bi-list-check text-primary me-1"></i> Naming Rules (Short & Clear):</h6>
+        <div class="rules-grid">
+          <div class="rule-pill-item">
+            <div class="icon-circle success"><i class="bi bi-check-lg"></i></div>
+            <div>Letter (a-z) ya Underscore (_) se start hona chahiye.</div>
+          </div>
+          <div class="rule-pill-item">
+            <div class="icon-circle danger"><i class="bi bi-x-lg"></i></div>
+            <div>Number se start nahi ho sakta (e.g. <code>1name</code> ❌).</div>
+          </div>
+          <div class="rule-pill-item">
+            <div class="icon-circle success"><i class="bi bi-check-lg"></i></div>
+            <div>Case-sensitive hota hai (<code>age</code> aur <code>Age</code> alag hain).</div>
+          </div>
+          <div class="rule-pill-item">
+            <div class="icon-circle success"><i class="bi bi-check-lg"></i></div>
+            <div>Special symbols (@, $, -, %) strictly not allowed.</div>
+          </div>
+        </div>
+
+        <!-- Example 1 -->
+        <div class="mt-4">
+          <span class="real-world-tag"><i class="bi bi-bag-check-fill"></i> Real Example 1: E-Commerce Product Details</span>
+          <div class="example-box">
+            <div class="example-header">
+              <div class="mac-dots">
+                <span class="mac-dot red"></span>
+                <span class="mac-dot yellow"></span>
+                <span class="mac-dot green"></span>
+              </div>
+              <span class="example-badge"><i class="bi bi-filetype-py"></i> product_info.py</span>
+              <button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-copy"></i> Copy</button>
+            </div>
+            <pre class="code-content"><span class="hl-comment"># Product details store karne ke liye variables</span>
+product_name = <span class="hl-str">"Wireless Gaming Mouse"</span>
+product_price = <span class="hl-num">1299.50</span>
+stock_quantity = <span class="hl-num">45</span>
+is_in_stock = <span class="hl-keyword">True</span>
+
+<span class="hl-func">print</span>(f<span class="hl-str">"Product: {product_name}"</span>)
+<span class="hl-func">print</span>(f<span class="hl-str">"Price: Rs. {product_price} | Available Units: {stock_quantity}"</span>)</pre>
+            <div class="code-output">
+              <span class="label">Output:</span> Product: Wireless Gaming Mouse<br>Price: Rs. 1299.5 | Available Units: 45
+            </div>
+          </div>
+        </div>
+
+        <!-- Example 2 -->
+        <div class="mt-4">
+          <span class="real-world-tag"><i class="bi bi-person-badge-fill"></i> Real Example 2: Employee Payroll System</span>
+          <div class="example-box">
+            <div class="example-header">
+              <div class="mac-dots">
+                <span class="mac-dot red"></span>
+                <span class="mac-dot yellow"></span>
+                <span class="mac-dot green"></span>
+              </div>
+              <span class="example-badge"><i class="bi bi-filetype-py"></i> payroll_variables.py</span>
+              <button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-copy"></i> Copy</button>
+            </div>
+            <pre class="code-content"><span class="hl-comment"># Employee salary calculation variables</span>
+emp_id = <span class="hl-str">"DE_102"</span>
+base_salary = <span class="hl-num">65000</span>
+bonus = <span class="hl-num">7500</span>
+total_payout = base_salary + bonus
+
+<span class="hl-func">print</span>(f<span class="hl-str">"Employee ID: {emp_id} -> Total Salary: Rs. {total_payout}"</span>)</pre>
+            <div class="code-output">
+              <span class="label">Output:</span> Employee ID: DE_102 -> Total Salary: Rs. 72500
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 2. DATA TYPES ================= -->
+      <section id="topic-datatypes" class="note-section-card">
+        <div class="topic-header">
+          <div class="topic-num-icon">02</div>
+          <div>
+            <h2 class="topic-title">2. Python Data Types (डेटा टाइप्स)</h2>
+            <small class="text-muted">Type of data stored inside a variable.</small>
+          </div>
+        </div>
+
+        <div class="key-summary-box">
+          <strong>💡 Core Data Types:</strong>
+          <ul class="mb-0 mt-2 ps-3">
+            <li><code>int</code>: Poore numbers (e.g. <code>25</code>, <code>-10</code>)</li>
+            <li><code>float</code>: Decimal wale numbers (e.g. <code>99.99</code>, <code>3.14</code>)</li>
+            <li><code>str</code>: Text ya strings jo quotes me ho (e.g. <code>"Himanshu"</code>)</li>
+            <li><code>bool</code>: Sirf <code>True</code> ya <code>False</code></li>
+            <li><code>NoneType</code>: Jab value empty/null ho (<code>None</code>)</li>
+          </ul>
+        </div>
+
+        <!-- Example 1 -->
+        <div class="mt-3">
+          <span class="real-world-tag"><i class="bi bi-database-fill"></i> Real Example 1: User Profile Record Check</span>
+          <div class="example-box">
+            <div class="example-header">
+              <div class="mac-dots">
+                <span class="mac-dot red"></span>
+                <span class="mac-dot yellow"></span>
+                <span class="mac-dot green"></span>
+              </div>
+              <span class="example-badge"><i class="bi bi-filetype-py"></i> datatypes_check.py</span>
+              <button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-copy"></i> Copy</button>
+            </div>
+            <pre class="code-content">user_id = <span class="hl-num">101</span>               <span class="hl-comment"># int</span>
+user_name = <span class="hl-str">"Himanshu"</span>      <span class="hl-comment"># str</span>
+account_balance = <span class="hl-num">4520.75</span>   <span class="hl-comment"># float</span>
+is_premium = <span class="hl-keyword">True</span>           <span class="hl-comment"># bool</span>
+referral_code = <span class="hl-keyword">None</span>        <span class="hl-comment"># NoneType</span>
+
+<span class="hl-comment"># type() function se datatype check karna</span>
+<span class="hl-func">print</span>(<span class="hl-func">type</span>(user_id))          <span class="hl-comment"># &lt;class 'int'&gt;</span>
+<span class="hl-func">print</span>(<span class="hl-func">type</span>(user_name))        <span class="hl-comment"># &lt;class 'str'&gt;</span>
+<span class="hl-func">print</span>(<span class="hl-func">type</span>(account_balance))  <span class="hl-comment"># &lt;class 'float'&gt;</span>
+<span class="hl-func">print</span>(<span class="hl-func">type</span>(is_premium))       <span class="hl-comment"># &lt;class 'bool'&gt;</span>
+<span class="hl-func">print</span>(<span class="hl-func">type</span>(referral_code))    <span class="hl-comment"># &lt;class 'NoneType'&gt;</span></pre>
+            <div class="code-output">
+              <span class="label">Output:</span> &lt;class 'int'&gt; | &lt;class 'str'&gt; | &lt;class 'float'&gt; | &lt;class 'bool'&gt; | &lt;class 'NoneType'&gt;
+            </div>
+          </div>
+        </div>
+
+        <!-- Example 2 -->
+        <div class="mt-4">
+          <span class="real-world-tag"><i class="bi bi-cpu-fill"></i> Real Example 2: IoT Weather Sensor Reading</span>
+          <div class="example-box">
+            <div class="example-header">
+              <div class="mac-dots">
+                <span class="mac-dot red"></span>
+                <span class="mac-dot yellow"></span>
+                <span class="mac-dot green"></span>
+              </div>
+              <span class="example-badge"><i class="bi bi-filetype-py"></i> weather_sensor.py</span>
+              <button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-copy"></i> Copy</button>
+            </div>
+            <pre class="code-content">city = <span class="hl-str">"Delhi"</span>           <span class="hl-comment"># str</span>
+temp_celsius = <span class="hl-num">32.4</span>      <span class="hl-comment"># float</span>
+humidity = <span class="hl-num">65</span>            <span class="hl-comment"># int (percentage)</span>
+is_raining = <span class="hl-keyword">False</span>       <span class="hl-comment"># bool</span>
+
+<span class="hl-func">print</span>(f<span class="hl-str">"[{city}] Temp: {temp_celsius}°C, Humidity: {humidity}%, Rain: {is_raining}"</span>)</pre>
+            <div class="code-output">
+              <span class="label">Output:</span> [Delhi] Temp: 32.4°C, Humidity: 65%, Rain: False
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 3. OPERATORS ================= -->
+      <section id="topic-operators" class="note-section-card">
+        <div class="topic-header">
+          <div class="topic-num-icon">03</div>
+          <div>
+            <h2 class="topic-title">3. Python Operators (ऑपरेटर्स)</h2>
+            <small class="text-muted">Symbols used to perform operations on values & variables.</small>
+          </div>
+        </div>
+
+        <div class="key-summary-box">
+          <strong>💡 Main Operator Categories:</strong>
+          <div class="row g-2 mt-2">
+            <div class="col-md-6">
+              <strong>1. Arithmetic:</strong> <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code> (float division), <code>//</code> (floor division), <code>%</code> (remainder), <code>**</code> (power)
+            </div>
+            <div class="col-md-6">
+              <strong>2. Comparison:</strong> <code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code> (True/False)
+            </div>
+            <div class="col-md-6">
+              <strong>3. Logical:</strong> <code>and</code>, <code>or</code>, <code>not</code>
+            </div>
+            <div class="col-md-6">
+              <strong>4. Assignment:</strong> <code>=</code>, <code>+=</code>, <code>-=</code>, <code>*=</code>
+            </div>
+          </div>
+        </div>
+
+        <!-- Example 1 -->
+        <div class="mt-3">
+          <span class="real-world-tag"><i class="bi bi-cart-check-fill"></i> Real Example 1: Grocery Shopping Bill & Discount</span>
+          <div class="example-box">
+            <div class="example-header">
+              <div class="mac-dots">
+                <span class="mac-dot red"></span>
+                <span class="mac-dot yellow"></span>
+                <span class="mac-dot green"></span>
+              </div>
+              <span class="example-badge"><i class="bi bi-filetype-py"></i> bill_calculation.py</span>
+              <button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-copy"></i> Copy</button>
+            </div>
+            <pre class="code-content">item_price = <span class="hl-num">450</span>
+quantity = <span class="hl-num">3</span>
+gst_rate = <span class="hl-num">0.18</span>        <span class="hl-comment"># 18% GST</span>
+
+<span class="hl-comment"># Arithmetic operators</span>
+subtotal = item_price * quantity        <span class="hl-comment"># Multiplication</span>
+tax_amount = subtotal * gst_rate
+final_bill = subtotal + tax_amount      <span class="hl-comment"># Addition</span>
+
+<span class="hl-comment"># Comparison operator: Check discount eligibility</span>
+is_eligible_discount = final_bill &gt;= <span class="hl-num">1000</span>
+
+<span class="hl-func">print</span>(f<span class="hl-str">"Total Bill: Rs. {final_bill:.2f}"</span>)
+<span class="hl-func">print</span>(f<span class="hl-str">"Eligible for VIP Coupon: {is_eligible_discount}"</span>)</pre>
+            <div class="code-output">
+              <span class="label">Output:</span> Total Bill: Rs. 1593.00<br>Eligible for VIP Coupon: True
+            </div>
+          </div>
+        </div>
+
+        <!-- Example 2 -->
+        <div class="mt-4">
+          <span class="real-world-tag"><i class="bi bi-shield-lock-fill"></i> Real Example 2: Loan Approval Eligibility (Logical Operators)</span>
+          <div class="example-box">
+            <div class="example-header">
+              <div class="mac-dots">
+                <span class="mac-dot red"></span>
+                <span class="mac-dot yellow"></span>
+                <span class="mac-dot green"></span>
+              </div>
+              <span class="example-badge"><i class="bi bi-filetype-py"></i> loan_check.py</span>
+              <button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-copy"></i> Copy</button>
+            </div>
+            <pre class="code-content">monthly_income = <span class="hl-num">48000</span>
+credit_score = <span class="hl-num">760</span>
+has_active_default = <span class="hl-keyword">False</span>
+
+<span class="hl-comment"># and / not operators combine conditions</span>
+is_loan_approved = (monthly_income &gt;= <span class="hl-num">30000</span>) <span class="hl-keyword">and</span> (credit_score &gt; <span class="hl-num">700</span>) <span class="hl-keyword">and</span> (<span class="hl-keyword">not</span> has_active_default)
+
+<span class="hl-func">print</span>(f<span class="hl-str">"Loan Approved Status: {is_loan_approved}"</span>)</pre>
+            <div class="code-output">
+              <span class="label">Output:</span> Loan Approved Status: True
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 4. USER INPUT ================= -->
+      <section id="topic-userinput" class="note-section-card">
+        <div class="topic-header">
+          <div class="topic-num-icon">04</div>
+          <div>
+            <h2 class="topic-title">4. User Input (यूज़र इनपुट)</h2>
+            <small class="text-muted">Taking dynamic runtime input using <code>input()</code>.</small>
+          </div>
+        </div>
+
+        <div class="key-summary-box">
+          <strong>⚠️ Crucial Concept:</strong> Python me <code>input()</code> hamesha string (<code>str</code>) return karta hai. Chahe user number enter kare ya text, calculation karne ke liye <strong>Type Casting</strong> zaroori hoti hai.
+        </div>
+
+        <!-- Example 1 -->
+        <div class="mt-3">
+          <span class="real-world-tag"><i class="bi bi-person-plus-fill"></i> Real Example 1: User Registration Greeting</span>
+          <div class="example-box">
+            <div class="example-header">
+              <div class="mac-dots">
+                <span class="mac-dot red"></span>
+                <span class="mac-dot yellow"></span>
+                <span class="mac-dot green"></span>
+              </div>
+              <span class="example-badge"><i class="bi bi-filetype-py"></i> user_greeting.py</span>
+              <button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-copy"></i> Copy</button>
+            </div>
+            <pre class="code-content"><span class="hl-comment"># String input lena</span>
+user_name = <span class="hl-func">input</span>(<span class="hl-str">"Enter your name: "</span>)
+user_city = <span class="hl-func">input</span>(<span class="hl-str">"Enter your city: "</span>)
+
+<span class="hl-func">print</span>(f<span class="hl-str">"Welcome, {user_name}! Data Pipeline setup ready for {user_city}."</span>)</pre>
+            <div class="code-output">
+              <span class="label">Demo:</span><br>
+              &gt; Enter your name: Himanshu<br>
+              &gt; Enter your city: Noida<br>
+              &gt; Welcome, Himanshu! Data Pipeline setup ready for Noida.
+            </div>
+          </div>
+        </div>
+
+        <!-- Example 2 -->
+        <div class="mt-4">
+          <span class="real-world-tag"><i class="bi bi-calculator-fill"></i> Real Example 2: Fuel Trip Measurement</span>
+          <div class="example-box">
+            <div class="example-header">
+              <div class="mac-dots">
+                <span class="mac-dot red"></span>
+                <span class="mac-dot yellow"></span>
+                <span class="mac-dot green"></span>
+              </div>
+              <span class="example-badge"><i class="bi bi-filetype-py"></i> fuel_cost.py</span>
+              <button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-copy"></i> Copy</button>
+            </div>
+            <pre class="code-content"><span class="hl-comment"># input() default behavior test</span>
+distance_str = <span class="hl-func">input</span>(<span class="hl-str">"Enter distance in km: "</span>)
+
+<span class="hl-comment"># Notice: Value string type hoti hai</span>
+<span class="hl-func">print</span>(f<span class="hl-str">"Value: {distance_str} | Datatype: {type(distance_str)}"</span>)</pre>
+            <div class="code-output">
+              <span class="label">Demo:</span><br>
+              &gt; Enter distance in km: 150<br>
+              &gt; Value: 150 | Datatype: &lt;class 'str'&gt;
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= 5. TYPE CASTING ================= -->
+      <section id="topic-typecasting" class="note-section-card">
+        <div class="topic-header">
+          <div class="topic-num-icon">05</div>
+          <div>
+            <h2 class="topic-title">5. Type Casting (टाइप कास्टिंग)</h2>
+            <small class="text-muted">Converting one data type into another.</small>
+          </div>
+        </div>
+
+        <div class="key-summary-box">
+          <strong>💡 Definition & Types:</strong>
+          <ul class="mb-0 mt-2 ps-3">
+            <li><strong>Implicit (Automatic):</strong> Python khud chhoti type ko badi type me convert karta hai (e.g. <code>5 + 2.5 = 7.5</code>).</li>
+            <li><strong>Explicit (Manual):</strong> Hum functions se manually convert karte hain: <code>int()</code>, <code>float()</code>, <code>str()</code>, <code>bool()</code>.</li>
+          </ul>
+        </div>
+
+        <!-- Float to Int Highlight Card -->
+        <div class="info-highlight-card">
+          <div class="d-flex align-items-center gap-2 mb-1">
+            <i class="bi bi-question-circle-fill text-teal fs-5"></i>
+            <strong class="text-dark">Float to Int Conversion Rule:</strong>
+          </div>
+          <p class="small text-secondary mb-1">
+            Haan, <code>int(99.85)</code> se float int me convert ho jata hai (result: <code>99</code>). Python decimal ke baad ke digits ko <strong>hata (truncate)</strong> deta hai, round-off nahi karta.
+          </p>
+          <div class="small fw-semibold text-teal-emphasis">
+            <code>int(4.99)</code> $\rightarrow$ <code>4</code> &nbsp;|&nbsp; <code>int(4.1)</code> $\rightarrow$ <code>4</code>
+          </div>
+        </div>
+
+        <!-- NEW MODERN REDESIGNED GOTCHA BOX -->
+        <div class="gotcha-box">
+          <div class="gotcha-header">
+            <div class="gotcha-header-icon">
+              <i class="bi bi-shield-exclamation"></i>
+            </div>
+            <div>
+              <h6 class="gotcha-header-title">Type Casting Traps: Kya Direct Convert NAHI Hota?</h6>
+              <small class="text-danger-emphasis">Yeh 4 cases me Python direct convert nahi karta aur Error deta hai:</small>
+            </div>
+          </div>
+
+          <div class="gotcha-grid">
+            <!-- Trap 1 -->
+            <div class="gotcha-card">
+              <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-1">
+                <span class="gotcha-badge-err"><i class="bi bi-x-circle-fill"></i> 1. Decimal String to Int</span>
+                <span class="badge bg-danger-subtle text-danger border border-danger-subtle small">ValueError</span>
+              </div>
+              <div class="small text-muted mb-2">
+                Agar string me decimal point hai jaise <span class="inline-code-err">int("45.67")</span> toh direct int nahi banega.
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <span class="gotcha-badge-fix"><i class="bi bi-check-circle-fill"></i> Solution</span>
+                <span class="inline-code-fix">int(float("45.67"))</span>
+                <span class="small text-success fw-bold">→ 45</span>
+              </div>
+            </div>
+
+            <!-- Trap 2 -->
+            <div class="gotcha-card">
+              <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-1">
+                <span class="gotcha-badge-err"><i class="bi bi-x-circle-fill"></i> 2. Alphabetic Text to Number</span>
+                <span class="badge bg-danger-subtle text-danger border border-danger-subtle small">ValueError</span>
+              </div>
+              <div class="small text-muted mb-2">
+                Letters ya alphabets jaise <span class="inline-code-err">int("Himanshu")</span> ya <span class="inline-code-err">float("abc")</span> convert nahi ho sakte.
+              </div>
+              <div class="small text-secondary">
+                <i class="bi bi-info-circle me-1 text-primary"></i> Strings ke andar valid digits (0-9) hona anivarya hai.
+              </div>
+            </div>
+
+            <!-- Trap 3 -->
+            <div class="gotcha-card">
+              <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-1">
+                <span class="gotcha-badge-err"><i class="bi bi-x-circle-fill"></i> 3. Empty String ya Spaces</span>
+                <span class="badge bg-danger-subtle text-danger border border-danger-subtle small">ValueError</span>
+              </div>
+              <div class="small text-muted">
+                Khali string <span class="inline-code-err">int("")</span> ya spaces <span class="inline-code-err">int("   ")</span> direct convert karne par fail ho jaati hai.
+              </div>
+            </div>
+
+            <!-- Trap 4 -->
+            <div class="gotcha-card">
+              <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-1">
+                <span class="gotcha-badge-err"><i class="bi bi-x-circle-fill"></i> 4. NoneType to Number</span>
+                <span class="badge bg-danger-subtle text-danger border border-danger-subtle small">TypeError</span>
+              </div>
+              <div class="small text-muted">
+                Null value <span class="inline-code-err">int(None)</span> ko seedha integer ya float me cast nahi kar sakte.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Example 1 -->
+        <div class="mt-4">
+          <span class="real-world-tag"><i class="bi bi-calendar-event-fill"></i> Real Example 1: Birth Year to Age Calculation (str to int)</span>
+          <div class="example-box">
+            <div class="example-header">
+              <div class="mac-dots">
+                <span class="mac-dot red"></span>
+                <span class="mac-dot yellow"></span>
+                <span class="mac-dot green"></span>
+              </div>
+              <span class="example-badge"><i class="bi bi-filetype-py"></i> age_calculator.py</span>
+              <button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-copy"></i> Copy</button>
+            </div>
+            <pre class="code-content"><span class="hl-comment"># input() string deta hai, int() se number banaya</span>
+birth_year_input = <span class="hl-func">input</span>(<span class="hl-str">"Enter birth year: "</span>)
+birth_year = <span class="hl-func">int</span>(birth_year_input)   <span class="hl-comment"># Explicit Casting: '2002' -> 2002</span>
+
+current_year = <span class="hl-num">2026</span>
+age = current_year - birth_year
+
+<span class="hl-func">print</span>(f<span class="hl-str">"Calculated Age: {age} years old"</span>)</pre>
+            <div class="code-output">
+              <span class="label">Demo:</span><br>
+              &gt; Enter birth year: 2002<br>
+              &gt; Calculated Age: 24 years old
+            </div>
+          </div>
+        </div>
+
+        <!-- Example 2 -->
+        <div class="mt-4">
+          <span class="real-world-tag"><i class="bi bi-currency-rupee"></i> Real Example 2: Salary Increment with Decimal Rate (str to float)</span>
+          <div class="example-box">
+            <div class="example-header">
+              <div class="mac-dots">
+                <span class="mac-dot red"></span>
+                <span class="mac-dot yellow"></span>
+                <span class="mac-dot green"></span>
+              </div>
+              <span class="example-badge"><i class="bi bi-filetype-py"></i> salary_appraisal.py</span>
+              <button class="copy-btn" onclick="copyCode(this)"><i class="bi bi-copy"></i> Copy</button>
+            </div>
+            <pre class="code-content"><span class="hl-comment"># User se salary aur hike percentage lena</span>
+current_salary = <span class="hl-func">float</span>(<span class="hl-func">input</span>(<span class="hl-str">"Enter current salary: "</span>))     <span class="hl-comment"># String to float</span>
+hike_percentage = <span class="hl-func">float</span>(<span class="hl-func">input</span>(<span class="hl-str">"Enter appraisal % (e.g. 12.5): "</span>))
+
+<span class="hl-comment"># Calculations with converted float numbers</span>
+increment_amount = (current_salary * hike_percentage) / <span class="hl-num">100</span>
+new_salary = current_salary + increment_amount
+
+<span class="hl-func">print</span>(f<span class="hl-str">"Increment: Rs. {increment_amount:.2f}"</span>)
+<span class="hl-func">print</span>(f<span class="hl-str">"Revised Salary: Rs. {new_salary:.2f}"</span>)</pre>
+            <div class="code-output">
+              <span class="label">Demo:</span><br>
+              &gt; Enter current salary: 50000<br>
+              &gt; Enter appraisal % (e.g. 12.5): 12.5<br>
+              &gt; Increment: Rs. 6250.00<br>
+              &gt; Revised Salary: Rs. 56250.00
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Summary Cheat Sheet Table -->
+      <div class="note-section-card bg-light border">
+        <div class="d-flex align-items-center gap-2 mb-3">
+          <div class="icon-circle info"><i class="bi bi-table"></i></div>
+          <h4 class="fw-bold mb-0">Quick Summary Table</h4>
+        </div>
+        <div class="table-responsive">
+          <table class="table table-bordered bg-white align-middle mb-0">
+            <thead class="table-dark">
+              <tr>
+                <th>Topic</th>
+                <th>Core Concept</th>
+                <th>Syntax / Function</th>
+                <th>Key Catch / Rule</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Variable</strong></td>
+                <td>Value store karne ka container</td>
+                <td><code>x = 10</code></td>
+                <td>Numbers se shuru nahi hota, case-sensitive</td>
+              </tr>
+              <tr>
+                <td><strong>2. Data Types</strong></td>
+                <td>Value kis prakaar ki hai</td>
+                <td><code>type(x)</code></td>
+                <td>int, float, str, bool, None</td>
+              </tr>
+              <tr>
+                <td><strong>3. Operators</strong></td>
+                <td>Calculation & condition check</td>
+                <td><code>+</code>, <code>==</code>, <code>and</code></td>
+                <td><code>/</code> hamesha float deta hai, <code>//</code> integer floor</td>
+              </tr>
+              <tr>
+                <td><strong>4. User Input</strong></td>
+                <td>User se dynamically value lena</td>
+                <td><code>input("...")</code></td>
+                <td>Hamesha <code>str</code> type deta hai</td>
+              </tr>
+              <tr>
+                <td><strong>5. Type Casting</strong></td>
+                <td>Ek type se doosre me convert</td>
+                <td><code>int()</code>, <code>float()</code></td>
+                <td>Decimal string ko pehle float fir int banayein</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div>© 2026 <strong class="text-dark">Himanshu Sharma</strong> • 120-Day Data Engineering Journey</div>
+    <div class="small mt-1 text-muted">Python Core Notes • Clean, Short & Practical</div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+function copyCode(btn) {
+  const codeBox = btn.closest('.example-box').querySelector('.code-content');
+  const text = codeBox.innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const originalHtml = btn.innerHTML;
+    btn.innerHTML = '<i class="bi bi-check2 text-success"></i> Copied!';
+    setTimeout(() => {
+      btn.innerHTML = originalHtml;
+    }, 2000);
+  });
+}
+</script>
+</body>
+</html>
