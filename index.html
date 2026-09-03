@@ -479,19 +479,27 @@ footer {
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg sticky-top">
   <div class="container py-1">
-    <a class="navbar-brand brand" href="#">
-      <i class="bi bi-database-fill-gear text-primary"></i> Data <span>Engineer 120</span>
+    <a class="navbar-brand brand" href="index.html">
+      <div style="width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, #4f46e5, #0284c7); display: inline-flex; align-items: center; justify-content: center; color: #fff; font-size: 1.1rem; box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);">
+        <i class="bi bi-database-fill-gear"></i>
+      </div>
+      <div>Data <span class="text-primary">Engineer 120</span></div>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-label="Toggle navigation">
       <i class="bi bi-list fs-5"></i>
     </button>
     <div class="collapse navbar-collapse" id="nav">
-      <ul class="navbar-nav ms-auto gap-lg-2">
+      <ul class="navbar-nav ms-auto gap-lg-2 align-items-lg-center">
         <li><a class="nav-link" href="#overview">Overview</a></li>
         <li><a class="nav-link" href="#daily-completed">Completed Days</a></li>
         <li><a class="nav-link" href="#strategy">1-Hour Method</a></li>
         <li><a class="nav-link" href="#roadmap120">120-Day Roadmap</a></li>
         <li><a class="nav-link" href="#python-plan">Python 30-Day Details</a></li>
+        <li>
+          <a class="nav-link text-primary fw-bold bg-primary-subtle rounded-pill px-3 py-1 border border-primary-subtle" href="notes.html">
+            <i class="bi bi-journal-code me-1"></i> Notes 📝
+          </a>
+        </li>
       </ul>
     </div>
   </div>
@@ -632,7 +640,10 @@ footer {
             </div>
             <span class="badge-pill badge-done"><i class="bi bi-check-lg"></i> COMPLETED</span>
           </div>
-          <p class="muted mt-2 mb-0">First study session focused on building strong fundamentals: variables, memory understanding, datatypes, casting, and operators.</p>
+          <p class="muted mt-2 mb-2">First study session focused on building strong fundamentals: variables, memory understanding, datatypes, casting, and operators.</p>
+          <a href="notes.html" class="btn btn-sm btn-outline-primary rounded-pill px-3 py-1">
+            <i class="bi bi-journal-text me-1"></i> View Day 1 Revision Notes (Variables, Operators, Casting...)
+          </a>
         </div>
       </div>
 
